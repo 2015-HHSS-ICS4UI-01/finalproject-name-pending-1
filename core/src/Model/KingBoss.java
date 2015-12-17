@@ -8,8 +8,13 @@ package Model;
  *
  * @author NamePending
  */
-public class KingBoss extends Entity{
-    public KingBoss(float x, float y, float width, float height){
-        super(x,y,width,height);
+public class KingBoss extends Entity {
+
+    public enum State {
+        STANDING, THROWING, ATTACKING, JUMPING
+    }
+    
+    public KingBoss(float x, float y, float width, float height) {
+        super(x, y, width, height);
     }
 }
