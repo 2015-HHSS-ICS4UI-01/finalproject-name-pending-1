@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package Entity;
 
 /**
  *
  * @author janaj4926
  */
-public class Entity {
+public abstract class Entity {
     
 }
