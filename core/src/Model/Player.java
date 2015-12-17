@@ -24,10 +24,10 @@ public class Player extends Entity {
 
     public Player(float x, float y, float width, float height) {
         super(x, y, width, height);
+        isFacingLeft = false;
+        stateTime = 0;
         state = State.STANDING;
         velocity = new Vector2(0, 0);
-        stateTime = 0;
-        isFacingLeft = false;
     }
 
     public boolean isFacingLeft() {

@@ -6,7 +6,7 @@ package Model;
 
 /**
  *
- * @author janaj4926
+ * @author NamePending
  */
 public class KingBoss extends Entity{
     public KingBoss(float x, float y, float width, float height){

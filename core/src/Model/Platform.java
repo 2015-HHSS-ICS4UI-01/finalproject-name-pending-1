@@ -8,8 +8,9 @@ package Model;
  *
  * @author NamePending
  */
-public class Platform extends Entity{
-    public Platform(float x, float y, float width, float height){
-        super(x,y,width,height);
+public class Platform extends Entity {
+
+    public Platform(float x, float y, float width, float height) {
+        super(x, y, width, height);
     }
 }
