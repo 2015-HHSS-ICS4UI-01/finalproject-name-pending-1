@@ -6,10 +6,11 @@ package Model;
 
 /**
  *
- * @author janaj4926
+ * @author NamePending
  */
-public class TurtleBoss extends Entity{
-    public TurtleBoss(float x, float y, float width, float height){
-        super(x,y,width,height);
+public class TurtleBoss extends Entity {
+
+    public TurtleBoss(float x, float y, float width, float height) {
+        super(x, y, width, height);
     }
 }

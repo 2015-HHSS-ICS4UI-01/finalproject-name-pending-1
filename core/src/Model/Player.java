@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Entity;
+package Model;
 
 import com.badlogic.gdx.math.Vector2;
 
@@ -23,7 +23,7 @@ public class Player extends Entity {
     private Vector2 velocity;
 
     public Player(float x, float y, float width, float height) {
-//        super(x, y, width, height);
+        super(x, y, width, height);
         state = State.STANDING;
         velocity = new Vector2(0, 0);
         stateTime = 0;

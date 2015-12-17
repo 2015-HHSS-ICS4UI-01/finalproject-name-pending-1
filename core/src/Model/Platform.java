@@ -6,7 +6,7 @@ package Model;
 
 /**
  *
- * @author janaj4926
+ * @author NamePending
  */
 public class Platform extends Entity{
     public Platform(float x, float y, float width, float height){
