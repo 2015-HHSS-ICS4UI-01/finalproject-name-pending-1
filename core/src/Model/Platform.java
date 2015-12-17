@@ -8,6 +8,8 @@ package Model;
  *
  * @author janaj4926
  */
-public class KingBoss {
-    
+public class Platform extends Entity{
+    public Platform(float x, float y, float width, float height){
+        super(x,y,width,height);
+    }
 }

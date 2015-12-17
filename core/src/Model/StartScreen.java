@@ -8,6 +8,8 @@ package Model;
  *
  * @author janaj4926
  */
-public class KnightBoss {
-    
+public class StartScreen extends Entity{
+    public StartScreen(float x, float y, float width, float height){
+        super(x,y,width,height);
+    }
 }

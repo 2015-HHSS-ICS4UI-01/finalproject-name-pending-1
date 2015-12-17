@@ -4,10 +4,23 @@
  */
 package Screens;
 
+import com.badlogic.gdx.graphics.g2d.Animation;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureRegion;
+
 /**
  *
  * @author janaj4926
  */
 public class AssetManager {
+    private static TextureAtlas atlas;
     
+    public static TextureRegion GolemBoss;
+    public static TextureRegion KingBoss;
+    public static TextureRegion KnightBoss;
+    public static TextureRegion Player;
+    public static TextureRegion TurtleBoss;
+    
+    public static Animation PlayerWalk;
+    public static Animation PlayerWalkL;
 }

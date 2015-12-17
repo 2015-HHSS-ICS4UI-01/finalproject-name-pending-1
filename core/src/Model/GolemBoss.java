@@ -8,6 +8,8 @@ package Model;
  *
  * @author janaj4926
  */
-public class StartScreen {
-    
+public class GolemBoss extends Entity{
+    public GolemBoss(float x, float y, float width, float height){
+        super(x,y,width,height);
+    }
 }
