@@ -10,28 +10,22 @@ import com.badlogic.gdx.math.Vector2;
  *
  * @author NamePending
  */
-public class KingBoss extends Entity {
+public class GolemFoot extends Entity {
 
     public enum State {
-
-        STANDING, THROWING, ATTACKING, JUMPING, COLLECTING
+        
+        STANDING, LIFTINGFOOT, DROPPINGFOOT
     }
-    private boolean isFacingLeft;
-    private final float MAX_VELOCITY = 4f, TERMINAL_VELOCITY = 4f, DAMP = 0.9f;
+    private final float TERMINAL_VELOCITY = 4f;
     private float stateTime;
     private State state;
     private Vector2 velocity;
-
-    public KingBoss(float x, float y, float width, float height) {
+    
+    public GolemFoot(float x, float y, float width, float height) {
         super(x, y, width, height);
-        isFacingLeft = true;
         stateTime = 0;
         state = State.STANDING;
-        velocity = new Vector2(0, 0);
-    }
-    
-    public boolean isFacingLeft() {
-        return isFacingLeft;
+        velocity =  new Vector2(0, 0);
     }
     
     public float getStateTime() {
