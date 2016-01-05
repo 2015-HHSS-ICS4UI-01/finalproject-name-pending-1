@@ -4,6 +4,8 @@
  */
 package com.heroparadox.game;
 
+import Model.Player;
+import Screens.WorldRenderer;
 import com.badlogic.gdx.Screen;
 
 /**
@@ -12,16 +14,26 @@ import com.badlogic.gdx.Screen;
  */
 public class MainGame implements Screen{
 
+    private World world;
+    private Player mitch;
+    private WorldRenderer renderer;
+    
+    public MainGame() {
+        world = new World();
+        mitch = world.getPlayer();
+        renderer = new WorldRenderer(world);
+    }
+    
     @Override
     public void show() {
     }
 
     @Override
-    public void render(float f) {
+    public void render(float deltaTime) {
     }
 
     @Override
-    public void resize(int i, int i1) {
+    public void resize(int width, int height) {
     }
 
     @Override
