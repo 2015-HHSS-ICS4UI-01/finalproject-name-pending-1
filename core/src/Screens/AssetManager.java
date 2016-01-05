@@ -23,4 +23,6 @@ public class AssetManager {
     
     public static Animation PlayerWalk;
     public static Animation PlayerWalkL;
+    
+    
 }
