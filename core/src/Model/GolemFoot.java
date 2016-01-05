@@ -14,7 +14,7 @@ public class GolemFoot extends Entity {
 
     public enum State {
         
-        STANDING, LIFTINGFOOT, DROPPINGFOOT
+        STANDING, ATTACKING, LIFTING, STUCK
     }
     private final float TERMINAL_VELOCITY = 4f;
     private float stateTime;
