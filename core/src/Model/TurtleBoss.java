@@ -45,4 +45,8 @@ public class TurtleBoss extends Entity {
     public float getVelX() {
         return velocity.x;
     }
+    
+    public enum State{
+        Attacking, Standing, Stunned
+    }
 }
