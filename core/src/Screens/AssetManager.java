@@ -27,5 +27,7 @@ public class AssetManager {
     public static Animation PlayerWalk;
     public static Animation PlayerWalkL;
     
-    
+    public static void load(){
+        atlas = new TextureAtlas("Player.pack");
+    }
 }
