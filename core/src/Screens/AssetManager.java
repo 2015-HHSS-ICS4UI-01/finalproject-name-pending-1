@@ -20,6 +20,9 @@ public class AssetManager {
     public static TextureRegion KnightBoss;
     public static TextureRegion Player;
     public static TextureRegion TurtleBoss;
+    public static TextureRegion DirtFloor;
+    public static TextureRegion SandFloor;
+    public static TextureRegion CastleFloor;
     
     public static Animation PlayerWalk;
     public static Animation PlayerWalkL;
