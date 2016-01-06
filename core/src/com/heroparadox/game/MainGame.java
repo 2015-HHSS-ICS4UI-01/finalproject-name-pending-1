@@ -9,6 +9,7 @@ import Model.World;
 import Screens.WorldRenderer;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 
@@ -35,18 +36,26 @@ public class MainGame implements Screen {
     @Override
     public void render(float deltaTime) {
         if (mitch.getState() != Player.State.FALLEN && mitch.getState() != Player.State.FROZEN) {
-            if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D)) {
+            if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Keys.BUTTON_L1) && !Gdx.input.isButtonPressed(Keys.BUTTON_R1)) {
                 mitch.setVelX(-2f);
                 mitch.setState(Player.State.RUNNING);
-            } else if (Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.A)) {
+                System.out.println("A");
+            }
+            if (Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Keys.BUTTON_L1) && !Gdx.input.isButtonPressed(Keys.BUTTON_R1)) {
                 mitch.setVelX(2f);
                 mitch.setState(Player.State.RUNNING);
-            } else if (Gdx.input.isButtonPressed(Keys.BUTTON_L1)
-                    && mitch.getState() != Player.State.JUMPING
-                    && mitch.getState() != Player.State.THROWING
-                    && mitch.getState() != Player.State.SLASHING) {
-                mitch.setState(Player.State.SLASHING);
-                mitch.setVelX(0f);
+                System.out.println("D");
+            }
+            if (Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isButtonPressed(Keys.BUTTON_L1) && !Gdx.input.isButtonPressed(Keys.BUTTON_R1)) {
+                mitch.setState(Player.State.JUMPING);
+                mitch.setVelY(4f);
+                System.out.println("SPACE");
+            }
+            if (Gdx.input.isButtonPressed(Keys.BUTTON_L1) && !Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Keys.BUTTON_R1)) {
+                System.out.println("M1");
+            }
+            if (Gdx.input.isButtonPressed(Keys.BUTTON_R1) && !Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Keys.BUTTON_L1)) {
+                System.out.println("R1");
             }
         }
     }
