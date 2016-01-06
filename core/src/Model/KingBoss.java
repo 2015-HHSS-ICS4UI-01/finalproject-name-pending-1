@@ -29,15 +29,15 @@ public class KingBoss extends Entity {
         state = State.STANDING;
         velocity = new Vector2(0, 0);
     }
-    
+
     public boolean isFacingLeft() {
         return isFacingLeft;
     }
-    
+
     public float getStateTime() {
         return stateTime;
     }
-    
+
     public State getState() {
         return state;
     }
@@ -45,7 +45,7 @@ public class KingBoss extends Entity {
     public float getVelX() {
         return velocity.x;
     }
-    
+
     public float getVelY() {
         return velocity.y;
     }
