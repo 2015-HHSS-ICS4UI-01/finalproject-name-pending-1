@@ -8,8 +8,9 @@ package Model;
  *
  * @author janaj4926
  */
-public class Floor extends Entity{
-    public Floor(float x, float y, float width, float height){
-        super(x,y,width,height);
+public class Floor extends Entity {
+
+    public Floor(float x, float y, float width, float height) {
+        super(x, y, width, height);
     }
 }

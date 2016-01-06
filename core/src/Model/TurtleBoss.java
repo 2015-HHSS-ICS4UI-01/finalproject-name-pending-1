@@ -13,6 +13,7 @@ import com.badlogic.gdx.math.Vector2;
 public class TurtleBoss extends Entity {
 
     public enum State {
+
         SPINNING, DIZZY, STANDING;
     }
     private boolean isFacingLeft;
@@ -20,7 +21,7 @@ public class TurtleBoss extends Entity {
     private float stateTime;
     private State state;
     private Vector2 velocity;
-    
+
     public TurtleBoss(float x, float y, float width, float height) {
         super(x, y, width, height);
         isFacingLeft = true;
@@ -28,7 +29,7 @@ public class TurtleBoss extends Entity {
         state = State.STANDING;
         velocity = new Vector2(0, 0);
     }
-    
+
     public boolean isFacingLeft() {
         return isFacingLeft;
     }
@@ -44,5 +45,4 @@ public class TurtleBoss extends Entity {
     public float getVelX() {
         return velocity.x;
     }
-    
 }
