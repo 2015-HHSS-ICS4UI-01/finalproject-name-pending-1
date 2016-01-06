@@ -5,6 +5,7 @@
 package com.heroparadox.game;
 
 import Model.Player;
+import Model.World;
 import Screens.WorldRenderer;
 import com.badlogic.gdx.Screen;
 
