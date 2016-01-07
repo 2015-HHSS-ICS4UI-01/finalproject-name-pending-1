@@ -36,29 +36,23 @@ public class MainGame implements Screen {
     @Override
     public void render(float deltaTime) {
         if (mitch.getState() != Player.State.FALLEN && mitch.getState() != Player.State.FROZEN) {
-            if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Keys.BUTTON_L1) && !Gdx.input.isButtonPressed(Keys.BUTTON_R1) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT)) {
-                mitch.setVelX(-2f);
-                mitch.setState(Player.State.RUNNING);
+            if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
                 System.out.println("A");
             }
-            if (Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Keys.BUTTON_L1) && !Gdx.input.isButtonPressed(Keys.BUTTON_R1) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT)) {
-                mitch.setVelX(2f);
-                mitch.setState(Player.State.RUNNING);
+            if (!Gdx.input.isKeyPressed(Keys.A) && Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
                 System.out.println("D");
             }
-            if (Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isButtonPressed(Keys.BUTTON_L1) && !Gdx.input.isButtonPressed(Keys.BUTTON_R1) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT)) {
-                mitch.setState(Player.State.JUMPING);
-                mitch.setVelY(4f);
+            if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
+                System.out.println("SHIFT");
+            }
+            if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
                 System.out.println("SPACE");
             }
-            if (Gdx.input.isButtonPressed(Keys.BUTTON_L1) && !Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Keys.BUTTON_R1) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT)) {
+            if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
                 System.out.println("M1");
             }
-            if (Gdx.input.isButtonPressed(Keys.BUTTON_R1) && !Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Keys.BUTTON_L1) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT)) {
-                System.out.println("R1");
-            }
-            if (Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Keys.BUTTON_L1) && !Gdx.input.isButtonPressed(Keys.BUTTON_R1)) {
-                System.out.println("SHIFT");
+            if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && Gdx.input.isButtonPressed(Buttons.RIGHT)) {
+                System.out.println("BEARS!");
             }
         }
     }
