@@ -95,4 +95,8 @@ public class Player extends Entity {
             stateTime = 0;
         }
     }
+    
+    public void setFacingL(boolean facingLeft) {
+        isFacingLeft = facingLeft;
+    }
 }
