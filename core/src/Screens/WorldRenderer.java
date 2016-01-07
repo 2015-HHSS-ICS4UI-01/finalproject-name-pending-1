@@ -28,11 +28,14 @@ public class WorldRenderer {
 
     public WorldRenderer(World w) {
         batch = new SpriteBatch();
+        
         camera = new OrthographicCamera();
         camera.position.x = WIDTH / 2;
         camera.position.y = HEIGHT / 2;
         viewport = new FitViewport(WIDTH, HEIGHT, camera);
+        
         world = w;
+        mitch = world.getPlayer();
     }
 
     public void render(float deltaTime) {
