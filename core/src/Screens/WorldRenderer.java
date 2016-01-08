@@ -15,7 +15,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 /**
  *
- * @author janaj4926
+ * @author NamePending
  */
 public class WorldRenderer {
 

@@ -8,7 +8,7 @@ import com.badlogic.gdx.Game;
 
 /**
  *
- * @author janaj4926
+ * @author NamePending
  */
 public class GdxGame extends Game{
 
