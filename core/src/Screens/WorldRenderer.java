@@ -4,6 +4,7 @@
  */
 package Screens;
 
+import Model.Floor;
 import Model.Player;
 import Model.World;
 import com.badlogic.gdx.Gdx;
@@ -25,11 +26,13 @@ public class WorldRenderer {
     private SpriteBatch batch;
     private Viewport viewport;
     private World world;
+    private World floor;
     
     public WorldRenderer(World w) {
 
         world = w;
         mitch = world.getPlayer();
+        
         
         camera = new OrthographicCamera();
         viewport = new FitViewport(WIDTH, HEIGHT, camera);
@@ -46,6 +49,9 @@ public class WorldRenderer {
         
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
+        for (Floor b : world.getFloor()) {
+            batch.draw(AssetManager.DirtFloor, 1,2);
+        }
         
         batch.end();
    }
