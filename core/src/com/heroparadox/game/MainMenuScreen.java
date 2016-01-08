@@ -30,7 +30,9 @@ public class MainMenuScreen implements Screen {
         public void render(float delta) {
              if (Gdx.input.isButtonPressed(Keys.BUTTON_L1)) 
                  game.setScreen(game.mainGame);
-             else
+             else{
+                 
+             }
                  
         }
  
