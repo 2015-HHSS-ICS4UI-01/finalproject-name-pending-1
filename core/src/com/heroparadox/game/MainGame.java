@@ -29,7 +29,6 @@ public class MainGame implements Screen {
         world = new World();
         mitch = world.getPlayer();
         renderer = new WorldRenderer(world);
-        gameState = 0;
         this.manager = manager;
         
     }
