@@ -11,7 +11,7 @@ import com.badlogic.gdx.Screen;
 
 /**
  *
- * @author NamePending
+ * @author janaj4926
  */
  
 public class GdxGame extends Game {

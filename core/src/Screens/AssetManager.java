@@ -10,7 +10,7 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 
 /**
  *
- * @author NamePending
+ * @author janaj4926
  */
 public class AssetManager {
     private static TextureAtlas atlas;
@@ -35,9 +35,8 @@ public class AssetManager {
     public static TextureRegion background;
     
     public static void load(){
-        atlas = new TextureAtlas("Pictures for Project.pack");
-        PlayerStand = atlas.findRegion("white");
-//        PlayerStand = atlas.findRegion("white.png");
+        atlas = new TextureAtlas("Pictures for project.pack");
+        PlayerStand = atlas.findRegion("white.png");
         DirtFloor = atlas.findRegion("Dirt.png");
         background = atlas.findRegion("background.png");
         

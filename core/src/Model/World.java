@@ -8,7 +8,7 @@ import com.badlogic.gdx.utils.Array;
 
 /**
  *
- * @author NamePending
+ * @author janaj4926
  */
 public class World {
 
