@@ -45,7 +45,7 @@ public class WorldRenderer {
         camera.update();
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        batch.draw(AssetManager.PlayerStand, 100, 100, 25, 25);
+        batch.draw(AssetManager.PlayerStand, 250, 250);
         batch.end();
     }
 }
