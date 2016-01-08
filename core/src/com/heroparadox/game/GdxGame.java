@@ -5,25 +5,15 @@
 package com.heroparadox.game;
 
 import com.badlogic.gdx.Game;
-import com.badlogic.gdx.Screen;
 
 /**
  *
- * @author janaj4926
+ * @author NamePending
  */
 public class GdxGame extends Game{
-    MainMenuScreen mainMenuScreen;   
-    MainGame mainGame;
- 
 
-       @Override
-        public void create() {
-                mainMenuScreen = new MainMenuScreen(this);
-                mainGame = new MainGame(this);
-                setScreen(mainMenuScreen);              
-        }
-    
-    public void setScreen(Screen s){
-        setScreen(s);
+    @Override
+    public void create() {
+        setScreen(new MainGame());
     }
 }
