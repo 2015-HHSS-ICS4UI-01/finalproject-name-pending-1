@@ -22,14 +22,13 @@ public class MainGame implements Screen {
     private World world;
     private Player mitch;
     private WorldRenderer renderer;
-    private int gameState;
-    private GdxGame manager;
-
-    public MainGame(GdxGame manager) {
+    GdxGame game;
+    
+    public MainGame(GdxGame game) {
+        this.game = game;
         world = new World();
         mitch = world.getPlayer();
         renderer = new WorldRenderer(world);
-        gameState = 0;
         this.manager = manager;
         
     }
