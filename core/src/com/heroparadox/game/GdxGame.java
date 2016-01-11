@@ -28,9 +28,9 @@ public class GdxGame extends Game {
                 setScreen(mainMenuScreen);              
         }
        
-       public void setScreen(Screen s){
-           setScreen(s);
-       }
+//       public void setScreen(Screen s){
+//           setScreen(s);
+//       }
 
     @Override
     public void create() {

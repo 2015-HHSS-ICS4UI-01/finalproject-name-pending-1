@@ -29,12 +29,12 @@ public class MainGame implements Screen {
         world = new World();
         mitch = world.getPlayer();
         renderer = new WorldRenderer(world);
-        this.manager = manager;
         
     }
 
     @Override
     public void show() {
+        
     }
 
     @Override
@@ -57,6 +57,7 @@ public class MainGame implements Screen {
             if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && Gdx.input.isButtonPressed(Buttons.RIGHT)) {
             }
         }
+        renderer.render(deltaTime);
     }
 
     @Override
