@@ -14,7 +14,7 @@ public class World {
 
     private Array<Floor> Floors;
     private Player player;
-
+    
     public World() {
         Floors = new Array<Floor>();
         demoLevel();

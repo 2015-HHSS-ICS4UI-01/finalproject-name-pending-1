@@ -28,14 +28,13 @@ public class WorldRenderer {
 
     public WorldRenderer(World w) {
         batch = new SpriteBatch();
-        
         camera = new OrthographicCamera();
         camera.position.x = WIDTH / 2;
         camera.position.y = HEIGHT / 2;
         viewport = new FitViewport(WIDTH, HEIGHT, camera);
-        
         world = w;
         mitch = world.getPlayer();
+        AssetManager.load();
     }
 
     public void render(float deltaTime) {
@@ -45,7 +44,7 @@ public class WorldRenderer {
         camera.update();
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        batch.draw(AssetManager.PlayerStand, 250, 250);
+        batch.draw(AssetManager.PlayerStand, 100, 100, 25, 25);
         batch.end();
     }
 }

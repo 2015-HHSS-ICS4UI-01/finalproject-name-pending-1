@@ -17,7 +17,7 @@ public class GolemFoot extends Entity {
         STANDING, ATTACKING, LIFTING, STUCK
     }
     private final float TERMINAL_VELOCITY = 4f;
-    private float stateTime;
+    private float stateTime, health;
     private State state;
     private Vector2 velocity;
 
@@ -26,6 +26,7 @@ public class GolemFoot extends Entity {
         stateTime = 0;
         state = State.STANDING;
         velocity = new Vector2(0, 0);
+        health = 9;
     }
 
     public float getStateTime() {
