@@ -4,6 +4,7 @@
  */
 package Screens;
 
+import Model.Floor;
 import Model.Player;
 import Model.World;
 import com.badlogic.gdx.Gdx;
@@ -25,8 +26,16 @@ public class WorldRenderer {
     private SpriteBatch batch;
     private Viewport viewport;
     private World world;
-
+    private Floor floor;
+    
     public WorldRenderer(World w) {
+
+        world = w;
+        mitch = world.getPlayer();
+        
+        
+        camera = new OrthographicCamera();
+        viewport = new FitViewport(WIDTH, HEIGHT, camera);
         batch = new SpriteBatch();
         camera = new OrthographicCamera();
         camera.position.x = WIDTH / 2;
@@ -44,7 +53,16 @@ public class WorldRenderer {
         camera.update();
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        batch.draw(AssetManager.PlayerStand, 100, 100, 25, 25);
+        
+        batch.draw(AssetManager.background, 0, 0);
+        
+        for (Floor b : world.getFloor()) {
+            batch.draw(AssetManager.DirtFloor, floor.getX(),floor.getY());
+        }
+        if(mitch.getState() == Player.State.STANDING){
+            batch.draw(AssetManager.PlayerStand, mitch.getX(),mitch.getY());
+        }
+        
         batch.end();
     }
 }
