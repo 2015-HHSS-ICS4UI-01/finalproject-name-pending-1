@@ -26,7 +26,7 @@ public class WorldRenderer {
     private SpriteBatch batch;
     private Viewport viewport;
     private World world;
-    private World floor;
+    private Floor floor;
     
     public WorldRenderer(World w) {
 
@@ -48,12 +48,7 @@ public class WorldRenderer {
         camera.update();
         
         batch.setProjectionMatrix(camera.combined);
-        batch.begin();
-        for (Floor b : world.getFloor()) {
-            batch.draw(AssetManager.DirtFloor, 1,2);
-        }
-        
-        batch.end();
+
    }
     
     public void resize(int width, int height) {
@@ -69,7 +64,16 @@ public class WorldRenderer {
         
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        batch.draw(AssetManager.PlayerStand, 100, 100, 25, 25);
+        
+        batch.draw(AssetManager.background, 0, 0);
+        
+        for (Floor b : world.getFloor()) {
+            batch.draw(AssetManager.DirtFloor, floor.getX(),floor.getY());
+        }
+        if(mitch.getState() == Player.State.STANDING){
+            batch.draw(AssetManager.PlayerStand, mitch.getX(),mitch.getY());
+        }
+        
         batch.end();
     }
 }
