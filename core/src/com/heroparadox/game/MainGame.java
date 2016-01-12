@@ -29,8 +29,6 @@ public class MainGame implements Screen {
         world = new World();
         mitch = world.getPlayer();
         renderer = new WorldRenderer(world);
-        this.manager = manager;
-        
     }
 
     @Override

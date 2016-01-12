@@ -19,6 +19,7 @@ public class GdxGame extends Game {
 
         MainMenuScreen mainMenuScreen;
         MainGame mainGame;
+        PausedGameScreen pausedGameScreen;
  
 
 

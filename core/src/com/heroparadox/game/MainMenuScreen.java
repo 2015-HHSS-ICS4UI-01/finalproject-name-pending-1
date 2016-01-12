@@ -28,11 +28,11 @@ public class MainMenuScreen implements Screen {
         
         @Override
         public void render(float delta) {
+            //render the main menu picture
              if (Gdx.input.isButtonPressed(Keys.BUTTON_L1)) 
                  game.setScreen(game.mainGame);
-             else{
-                 
-             }
+             
+             
                  
         }
  
