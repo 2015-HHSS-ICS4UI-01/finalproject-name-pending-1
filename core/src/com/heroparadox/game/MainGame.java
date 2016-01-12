@@ -21,15 +21,13 @@ public class MainGame implements Screen {
     private World world;
     private Player mitch;
     private WorldRenderer renderer;
-    GdxGame game;
+    private GdxGame game;
     
     public MainGame(GdxGame game) {
         this.game = game;
         world = new World();
         mitch = world.getPlayer();
-        renderer = new WorldRenderer(world);
-        this.manager = manager;
-        
+        renderer = new WorldRenderer(world);        
     }
 
     @Override
@@ -67,7 +65,6 @@ public class MainGame implements Screen {
 //                mitch.setVelX(0f);
 //            }
 //        }
-
         renderer.render(deltaTime);
     }
 
