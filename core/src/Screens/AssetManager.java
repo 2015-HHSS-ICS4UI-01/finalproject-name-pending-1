@@ -41,7 +41,11 @@ public class AssetManager {
         
 //        Array<AtlasRegion> run = atlas.findRegion(walk);
 //        PlayerWalk = new Animation(0.1f, walk);
-        
+//        walk = atlas.findRegions("walk");
+//        PlayerWalkL = new Animation(0.1f, walk);
+//        for(TextureRegion r: PlayerWalkL.getKeyFrames()){
+//            r.flip(true, false);
+//        }
         
         
     }
