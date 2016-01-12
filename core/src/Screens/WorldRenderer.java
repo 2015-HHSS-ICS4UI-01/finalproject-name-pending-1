@@ -53,7 +53,6 @@ public class WorldRenderer {
         camera.update();
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        
         batch.draw(AssetManager.background, 0, 0);
         
         for (Floor b : world.getFloor()) {
