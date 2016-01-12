@@ -14,7 +14,7 @@ public class Player extends Entity {
 
     public enum State {
 
-        BLOCKING, SLASHING, THROWING, RUNNING, STANDING, FROZEN, JUMPING, CROUCHING, FALLEN
+        BLOCKING, ATTACKING, THROWING, RUNNING, STANDING, FROZEN, JUMPING, CROUCHING, FALLEN
     }
     private boolean isFacingLeft;
     private final float MAX_VELOCITY = 2f, TERMINAL_VELOCITY = 4f, DAMP = 0.9f;
@@ -31,27 +31,27 @@ public class Player extends Entity {
         velocity = new Vector2(0, 0);
     }
 
-    public void update(float delta) {
-        acceleration.y = -9.8f;
-        velocity.mulAdd(acceleration, delta);
-        velocity.x *= DAMP;
-        if (velocity.x < 0.01f && velocity.x > -0.01f) {
-            velocity.x = 0;
-        }
-        addToPosition(velocity.x, velocity.y);
-        isFacingLeft = false;
-        if (state != State.RUNNING && state != State.JUMPING) {
-            stateTime = 0;
-            state = State.RUNNING;
-        }
-        if (velocity.x > 0) {
-            isFacingLeft = false;
-        } else if (velocity.x < 0) {
-            isFacingLeft = true;
-        } else {
-            state = State.STANDING;
-        }
-    }
+//    public void update(float delta) {
+//        acceleration.y = -9.8f;
+//        velocity.mulAdd(acceleration, delta);
+//        velocity.x *= DAMP;
+//        if (velocity.x < 0.01f && velocity.x > -0.01f) {
+//            velocity.x = 0;
+//        }
+//        addToPosition(velocity.x, velocity.y);
+//        isFacingLeft = false;
+//        if (state != State.RUNNING && state != State.JUMPING) {
+//            stateTime = 0;
+//            state = State.RUNNING;
+//        }
+//        if (velocity.x > 0) {
+//            isFacingLeft = false;
+//        } else if (velocity.x < 0) {
+//            isFacingLeft = true;
+//        } else {
+//            state = State.STANDING;
+//        }
+//    }
 
     public boolean isFacingLeft() {
         return isFacingLeft;

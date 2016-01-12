@@ -18,7 +18,7 @@ public class KingBoss extends Entity {
     }
     private boolean isFacingLeft;
     private final float MAX_VELOCITY = 4f, TERMINAL_VELOCITY = 4f, DAMP = 0.9f;
-    private float stateTime;
+    private float stateTime, health;
     private State state;
     private Vector2 velocity;
 
@@ -28,6 +28,7 @@ public class KingBoss extends Entity {
         stateTime = 0;
         state = State.STANDING;
         velocity = new Vector2(0, 0);
+        health = 3;
     }
 
     public boolean isFacingLeft() {

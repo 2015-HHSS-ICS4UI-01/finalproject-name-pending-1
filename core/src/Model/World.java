@@ -8,13 +8,13 @@ import com.badlogic.gdx.utils.Array;
 
 /**
  *
- * @author janaj4926
+ * @author NamePending
  */
 public class World {
 
     private Array<Floor> Floors;
     private Player player;
-
+    
     public World() {
         Floors = new Array<Floor>();
         demoLevel();

@@ -16,7 +16,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 /**
  *
- * @author janaj4926
+ * @author NamePending
  */
 public class WorldRenderer {
 
@@ -37,31 +37,20 @@ public class WorldRenderer {
         camera = new OrthographicCamera();
         viewport = new FitViewport(WIDTH, HEIGHT, camera);
         batch = new SpriteBatch();
-        
+        camera = new OrthographicCamera();
         camera.position.x = WIDTH / 2;
         camera.position.y = HEIGHT / 2;
-        camera.update();
-        
-        Gdx.gl20.glClearColor(0, 0, 0, 1);
-        Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        
-        camera.update();
-        
-        batch.setProjectionMatrix(camera.combined);
-
-   }
-    
-    public void resize(int width, int height) {
-        viewport.update(width, height);
+        viewport = new FitViewport(WIDTH, HEIGHT, camera);
+        world = w;
+        mitch = world.getPlayer();
+        AssetManager.load();
     }
-    
+
     public void render(float deltaTime) {
         Gdx.gl20.glClearColor(0, 0, 0, 1);
         Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        
         camera.position.x = Math.max(mitch.getX(), WIDTH / 2);
         camera.update();
-        
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
         

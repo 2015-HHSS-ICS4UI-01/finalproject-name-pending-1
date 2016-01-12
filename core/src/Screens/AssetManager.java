@@ -12,27 +12,24 @@ import com.badlogic.gdx.utils.Array;
 
 /**
  *
- * @author janaj4926
+ * @author NamePending
  */
 public class AssetManager {
+
     private static TextureAtlas atlas;
-    
     //bosses
     public static TextureRegion GolemBoss;
     public static TextureRegion KingBoss;
     public static TextureRegion KnightBoss;
     public static TextureRegion TurtleBoss;
-    
     //floors
     public static TextureRegion DirtFloor;
     public static TextureRegion SandFloor;
     public static TextureRegion CastleFloor;
-    
     //player
     public static TextureRegion PlayerStand;
     public static Animation PlayerWalk;
     public static Animation PlayerWalkL;
-    
     //background
     public static TextureRegion background;
     

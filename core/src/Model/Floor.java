@@ -6,7 +6,7 @@ package Model;
 
 /**
  *
- * @author janaj4926
+ * @author NamePending
  */
 public class Floor extends Entity {
 
