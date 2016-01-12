@@ -22,12 +22,12 @@ public class MainGame implements Screen {
     private Player mitch;
     private WorldRenderer renderer;
     private GdxGame game;
-    
+
     public MainGame(GdxGame game) {
         this.game = game;
         world = new World();
         mitch = world.getPlayer();
-        renderer = new WorldRenderer(world);        
+        renderer = new WorldRenderer(world);
     }
 
     @Override
