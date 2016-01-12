@@ -13,15 +13,20 @@ import com.badlogic.gdx.Screen;
  */
 public class GdxGame extends Game {
 
-    MainMenuScreen mainMenuScreen;
+//    MainMenuScreen mainMenuScreen;
     MainGame mainGame;
 
     public GdxGame() {
-        mainMenuScreen = new MainMenuScreen(this);
+//        mainMenuScreen = new MainMenuScreen(this);
         mainGame = new MainGame(this);
-        setScreen(mainMenuScreen);
+//        setScreen(mainMenuScreen);
     }
 
+    /**
+     *
+     * @param s
+     */
+    @Override
     public void setScreen(Screen s) {
         setScreen(s);
     }
