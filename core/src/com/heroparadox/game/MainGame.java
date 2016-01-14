@@ -8,31 +8,31 @@ import Model.Player;
 import Model.World;
 import Screens.WorldRenderer;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 
 /**
  *
- * @author NamePending
+ * @author janaj4926
  */
 public class MainGame implements Screen {
 
     private World world;
-    private Player player;
+    private Player mitch;
     private WorldRenderer renderer;
-    private GdxGame game;
-
+    GdxGame game;
+    
     public MainGame(GdxGame game) {
         this.game = game;
         world = new World();
-        player = world.getPlayer();
+        mitch = world.getPlayer();
         renderer = new WorldRenderer(world);
     }
 
     @Override
     public void show() {
-        
     }
 
     @Override
@@ -49,17 +49,24 @@ public class MainGame implements Screen {
                     player.setState(Player.State.RUNNING);
                 }
             }
-            if (player.getState() != Player.State.ATTACKING) {
+            if (!Gdx.input.isKeyPressed(Keys.A) && Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
+                mitch.setFacingL(false);
+            }
+            if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
                 
             }
+            if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
+            }
+            if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
+            }
+            if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && Gdx.input.isButtonPressed(Buttons.RIGHT)) {
+            }
         }
-        player.update(deltaTime);
-        renderer.render(deltaTime);
     }
 
     @Override
     public void resize(int width, int height) {
-        
+        renderer.resize(width, height);
     }
 
     @Override

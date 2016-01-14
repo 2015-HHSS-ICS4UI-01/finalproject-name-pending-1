@@ -7,7 +7,7 @@ package Model;
 import com.badlogic.gdx.math.Vector2;
 
 /**
- *creates the knight boss
+ *
  * @author NamePending
  */
 public class KnightBoss extends Entity {
@@ -18,7 +18,7 @@ public class KnightBoss extends Entity {
     }
     private boolean isFacingLeft;
     private final float MAX_VELOCITY = 4f, DAMP = 0.9f;
-    private float stateTime, health;
+    private float stateTime;
     private State state;
     private Vector2 velocity;
 
@@ -28,10 +28,8 @@ public class KnightBoss extends Entity {
         stateTime = 0;
         state = State.STANDING;
         velocity = new Vector2(0, 0);
-        health = 9;
     }
 
-    
     public boolean isFacingLeft() {
         return isFacingLeft;
     }

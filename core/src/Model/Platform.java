@@ -6,11 +6,11 @@ package Model;
 
 /**
  *
- * @author janaj4926
+ * @author NamePending
  */
-public class Floor extends Entity {
+public class Platform extends Entity {
 
-    public Floor(float x, float y, float width, float height) {
+    public Platform(float x, float y, float width, float height) {
         super(x, y, width, height);
     }
 }
