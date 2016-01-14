@@ -35,7 +35,7 @@ public class AssetManager {
     public static TextureRegion background;
     
     public static void load(){
-        atlas = new TextureAtlas("Pictures for Project.pack");
+        atlas = new TextureAtlas("Pictures for project.pack");
         PlayerStand = atlas.findRegion("white");
         DirtFloor = atlas.findRegion("Dirt");
         background = atlas.findRegion("background");
