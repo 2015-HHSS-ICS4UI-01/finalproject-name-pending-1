@@ -59,5 +59,4 @@ public class PausedGameScreen implements Screen {
     @Override
     public void show() {
     }
-    
 }
