@@ -7,27 +7,33 @@ package com.heroparadox.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Screen;
 
+
+
 /**
  *
  * @author janaj4926
  */
+ 
 public class GdxGame extends Game {
+ 
 
-    MainMenuScreen mainMenuScreen;
-    MainGame mainGame;
-    PausedGameScreen pausedGameScreen;
+        MainMenuScreen mainMenuScreen;
+        MainGame mainGame;
+        PausedGameScreen pausedGameScreen;
+ 
 
-    public GdxGame() {
-    }
 
-    public void changeScreen(Screen s) {
-        this.setScreen(s);
-    }
+        public GdxGame() {             
+        }
+       
+       public void setScreen(Screen s){
+           this.setScreen(s);
+       }
 
     @Override
     public void create() {
         mainMenuScreen = new MainMenuScreen(this);
         mainGame = new MainGame(this);
-        changeScreen(mainMenuScreen);
+        setScreen(mainMenuScreen); 
     }
-}
+ }

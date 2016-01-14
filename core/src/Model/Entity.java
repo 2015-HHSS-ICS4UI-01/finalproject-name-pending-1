@@ -7,7 +7,7 @@ package Model;
 import com.badlogic.gdx.math.Rectangle;
 
 /**
- *makes all the things in the game with an x,y,width,height, and collision
+ *
  * @author NamePending
  */
 public abstract class Entity {

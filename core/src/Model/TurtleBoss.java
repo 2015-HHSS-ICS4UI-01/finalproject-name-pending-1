@@ -18,7 +18,7 @@ public class TurtleBoss extends Entity {
     }
     private boolean isFacingLeft;
     private final float MAX_VELOCITY = 2f, DAMP = 0.9f;
-    private float stateTime, health;
+    private float stateTime;
     private State state;
     private Vector2 velocity;
 
@@ -28,7 +28,6 @@ public class TurtleBoss extends Entity {
         stateTime = 0;
         state = State.STANDING;
         velocity = new Vector2(0, 0);
-        health = 9;
     }
 
     public boolean isFacingLeft() {
