@@ -36,7 +36,7 @@ public class MainGame implements Screen {
 
     @Override
     public void render(float deltaTime) {
-        resize(renderer.WIDTH, renderer.HEIGHT);
+        
         if (player.getState() != Player.State.FALLEN && player.getState() != Player.State.FROZEN) {
             if (player.getState() != Player.State.ATTACKING && player.getState() != Player.State.CROUCHING && player.getState() != Player.State.BLOCKING &&
                     !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
@@ -62,11 +62,12 @@ public class MainGame implements Screen {
             if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && Gdx.input.isButtonPressed(Buttons.RIGHT)) {
             }
         }
+        renderer.render(deltaTime);
     }
 
     @Override
     public void resize(int width, int height) {
-        renderer.resize(width, height);
+        renderer.resize(renderer.WIDTH, renderer.HEIGHT);
     }
 
     @Override

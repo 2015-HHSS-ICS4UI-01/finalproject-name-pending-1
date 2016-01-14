@@ -39,7 +39,6 @@ public class MainMenuScreen implements Screen {
             this.game = game;
             camera = new OrthographicCamera();
             viewport = new FitViewport(V_WIDTH, V_HEIGHT, camera);
-            logo = new Texture("badlogic.jpg");
         }
         
         @Override

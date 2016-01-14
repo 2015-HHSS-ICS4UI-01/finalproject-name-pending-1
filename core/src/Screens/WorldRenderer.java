@@ -42,17 +42,11 @@ public final class WorldRenderer {
         camera.position.y = HEIGHT / 2;
         camera.update();
 
-        Gdx.gl20.glClearColor(0, 0, 0, 1);
-        Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT);
         AssetManager.load();
         camera.update();
-        resize(WIDTH, HEIGHT);
+    
         batch.setProjectionMatrix(camera.combined);
-        batch.begin();
-        for (Floor b : world.getFloor()) {
-            batch.draw(AssetManager.DirtFloor, 1, 2);
-        }
-        batch.end();
+
     }
 
     public void resize(int width, int height) {
@@ -70,13 +64,13 @@ public final class WorldRenderer {
 
         batch.begin();
 
-        batch.draw(AssetManager.background, 0, 1000);
+        batch.draw(AssetManager.background, 0, 0);
         
         for (Floor f : world.getFloor()) {
             batch.draw(AssetManager.DirtFloor, f.getX(), f.getY());
         }
         if (player.getState() == Player.State.STANDING) {
-            batch.draw(AssetManager.PlayerStand, 500, 500, 25, 25);
+            batch.draw(AssetManager.PlayerStand, 25, 25);
         }
         batch.end();
     }
