@@ -35,9 +35,9 @@ public class AssetManager {
     
     public static void load(){
         atlas = new TextureAtlas("starter pack.pack");
-        PlayerStand = atlas.findRegion("Mitch.png");
-        DirtFloor = atlas.findRegion("Dirt.png");
-        background = atlas.findRegion("start screen.png");
+        PlayerStand = atlas.findRegion("Mitch");
+        DirtFloor = atlas.findRegion("Dirt");
+        background = atlas.findRegion("start screen");
         
 //        Array<AtlasRegion> run = atlas.findRegion(walk);
 //        PlayerWalk = new Animation(0.1f, walk);
