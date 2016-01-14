@@ -53,6 +53,7 @@ public class WorldRenderer {
         if (player.getState() == Player.State.STANDING) {
             batch.draw(AssetManager.PlayerStand, 500, 500, 25, 25);
         }
+        System.out.println("Tries to draw stuff but fails miserably");
         batch.end();
     }
 }
