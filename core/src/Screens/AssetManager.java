@@ -34,10 +34,10 @@ public class AssetManager {
     public static TextureRegion background;
     
     public static void load(){
-        atlas = new TextureAtlas("Pictures for project.pack");
-        PlayerStand = atlas.findRegion("white.png");
+        atlas = new TextureAtlas("starter pack.pack");
+        PlayerStand = atlas.findRegion("Mitch.png");
         DirtFloor = atlas.findRegion("Dirt.png");
-        background = atlas.findRegion("background.png");
+        background = atlas.findRegion("start screen.png");
         
 //        Array<AtlasRegion> run = atlas.findRegion(walk);
 //        PlayerWalk = new Animation(0.1f, walk);
