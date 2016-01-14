@@ -9,30 +9,25 @@ import com.badlogic.gdx.Screen;
 
 /**
  *
- * @author NamePending
+ * @author janaj4926
  */
 public class GdxGame extends Game {
 
-//    MainMenuScreen mainMenuScreen;
+    MainMenuScreen mainMenuScreen;
     MainGame mainGame;
+    PausedGameScreen pausedGameScreen;
 
     public GdxGame() {
-//        mainMenuScreen = new MainMenuScreen(this);
-        mainGame = new MainGame(this);
-//        setScreen(mainMenuScreen);
     }
 
-//        public GdxGame() {
-//                mainMenuScreen = new MainMenuScreen(this);
-//                mainGame = new MainGame(this);
-//                setScreen(mainMenuScreen);              
-//        }
-       
-       public void setScreen(Screen s){
-           setScreen(s);
-       }
+    public void changeScreen(Screen s) {
+        this.setScreen(s);
+    }
 
     @Override
     public void create() {
+        mainMenuScreen = new MainMenuScreen(this);
+        mainGame = new MainGame(this);
+        changeScreen(mainMenuScreen);
     }
 }

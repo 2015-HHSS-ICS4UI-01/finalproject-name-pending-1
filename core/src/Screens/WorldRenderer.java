@@ -22,47 +22,37 @@ public class WorldRenderer {
 
     public final int WIDTH = 1000, HEIGHT = 1000;
     private OrthographicCamera camera;
-    private Player mitch;
+    private Player player;
     private SpriteBatch batch;
     private Viewport viewport;
     private World world;
     private Floor floor;
-    
-    public WorldRenderer(World w) {
 
+    public WorldRenderer(World w) {
         world = w;
-        mitch = world.getPlayer();
-        
-        
+        player = world.getPlayer();
         camera = new OrthographicCamera();
         viewport = new FitViewport(WIDTH, HEIGHT, camera);
         batch = new SpriteBatch();
-        camera = new OrthographicCamera();
         camera.position.x = WIDTH / 2;
         camera.position.y = HEIGHT / 2;
-        viewport = new FitViewport(WIDTH, HEIGHT, camera);
-        world = w;
-        mitch = world.getPlayer();
         AssetManager.load();
     }
 
     public void render(float deltaTime) {
         Gdx.gl20.glClearColor(0, 0, 0, 1);
         Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        camera.position.x = Math.max(mitch.getX(), WIDTH / 2);
+        camera.position.x = Math.max(player.getX(), WIDTH / 2);
         camera.update();
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        
-        batch.draw(AssetManager.background, 0, 0);
-        
-        for (Floor b : world.getFloor()) {
-            batch.draw(AssetManager.DirtFloor, floor.getX(),floor.getY());
+        batch.draw(AssetManager.background, 0, 1000);
+        for (Floor f : world.getFloor()) {
+            batch.draw(AssetManager.DirtFloor, f.getX(), f.getY());
         }
-        if(mitch.getState() == Player.State.STANDING){
-            batch.draw(AssetManager.PlayerStand, mitch.getX(),mitch.getY());
+        if (player.getState() == Player.State.STANDING) {
+            batch.draw(AssetManager.PlayerStand, 500, 500, 25, 25);
         }
-        
         batch.end();
     }
 }
