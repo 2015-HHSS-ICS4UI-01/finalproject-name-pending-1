@@ -36,6 +36,9 @@ public class MainGame implements Screen {
 
     @Override
     public void render(float deltaTime) {
+        if(Gdx.input.isKeyPressed(Keys.ESCAPE)){
+            game.changeScreen(game.pausedGameScreen);
+        }
         
         if (player.getState() != Player.State.FALLEN && player.getState() != Player.State.FROZEN) {
             if (player.getState() != Player.State.ATTACKING && player.getState() != Player.State.CROUCHING && player.getState() != Player.State.BLOCKING &&
