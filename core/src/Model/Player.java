@@ -31,27 +31,27 @@ public class Player extends Entity {
         velocity = new Vector2(0, 0);
     }
 
-//    public void update(float delta) {
-//        acceleration.y = -9.8f;
-//        velocity.mulAdd(acceleration, delta);
-//        velocity.x *= DAMP;
-//        if (velocity.x < 0.01f && velocity.x > -0.01f) {
-//            velocity.x = 0;
-//        }
-//        addToPosition(velocity.x, velocity.y);
-//        isFacingLeft = false;
-//        if (state != State.RUNNING && state != State.JUMPING) {
-//            stateTime = 0;
-//            state = State.RUNNING;
-//        }
-//        if (velocity.x > 0) {
-//            isFacingLeft = false;
-//        } else if (velocity.x < 0) {
-//            isFacingLeft = true;
-//        } else {
-//            state = State.STANDING;
-//        }
-//    }
+    public void update(float delta) {
+        acceleration.y = -9.8f;
+        velocity.mulAdd(acceleration, delta);
+        velocity.x *= DAMP;
+        if (velocity.x < 0.01f && velocity.x > -0.01f) {
+            velocity.x = 0;
+        }
+        addToPosition(velocity.x, velocity.y);
+        isFacingLeft = false;
+        if (state != State.RUNNING && state != State.JUMPING) {
+            stateTime = 0;
+            state = State.RUNNING;
+        }
+        if (velocity.x > 0) {
+            isFacingLeft = false;
+        } else if (velocity.x < 0) {
+            isFacingLeft = true;
+        } else {
+            state = State.STANDING;
+        }
+    }
 
     public boolean isFacingLeft() {
         return isFacingLeft;

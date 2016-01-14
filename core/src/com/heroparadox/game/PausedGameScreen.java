@@ -58,7 +58,6 @@ public class PausedGameScreen implements Screen {
 
     @Override
     public void show() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }
