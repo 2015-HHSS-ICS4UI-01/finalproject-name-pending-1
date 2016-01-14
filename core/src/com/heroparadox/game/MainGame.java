@@ -58,6 +58,7 @@ public class MainGame implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        renderer.resize(width, height);
     }
 
     @Override

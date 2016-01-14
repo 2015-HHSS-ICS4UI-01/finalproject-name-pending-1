@@ -42,11 +42,16 @@ public class WorldRenderer {
     public void render(float deltaTime) {
         Gdx.gl20.glClearColor(0, 0, 0, 1);
         Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        camera.position.x = Math.max(player.getX(), WIDTH / 2);
+        
+        //camera.position.x = Math.max(player.getX(), WIDTH / 2);
+        
         camera.update();
         batch.setProjectionMatrix(camera.combined);
+        
         batch.begin();
-        batch.draw(AssetManager.background, 0, 1000);
+        
+        batch.draw(AssetManager.background, 0,0);
+        
         for (Floor f : world.getFloor()) {
             batch.draw(AssetManager.DirtFloor, f.getX(), f.getY());
         }
@@ -54,5 +59,9 @@ public class WorldRenderer {
             batch.draw(AssetManager.PlayerStand, 500, 500, 25, 25);
         }
         batch.end();
+    }
+    
+    public void resize(int width, int height){
+        viewport.update(width, height);
     }
 }
