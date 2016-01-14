@@ -7,7 +7,7 @@ package Model;
 import com.badlogic.gdx.math.Vector2;
 
 /**
- *
+ *creates the knight boss
  * @author NamePending
  */
 public class KnightBoss extends Entity {
@@ -31,6 +31,7 @@ public class KnightBoss extends Entity {
         health = 9;
     }
 
+    
     public boolean isFacingLeft() {
         return isFacingLeft;
     }

@@ -6,7 +6,9 @@ package Screens;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.utils.Array;
 
 /**
  *
@@ -30,11 +32,21 @@ public class AssetManager {
     public static Animation PlayerWalkL;
     //background
     public static TextureRegion background;
-
-    public static void load() {
-        atlas = new TextureAtlas("Pictures for Project.pack");
-        PlayerStand = atlas.findRegion("white");
-        DirtFloor = atlas.findRegion("Dirt");
-        background = atlas.findRegion("background");
+    
+    public static void load(){
+        atlas = new TextureAtlas("Pictures for project.pack");
+        PlayerStand = atlas.findRegion("white.png");
+        DirtFloor = atlas.findRegion("Dirt.png");
+        background = atlas.findRegion("background.png");
+        
+//        Array<AtlasRegion> run = atlas.findRegion(walk);
+//        PlayerWalk = new Animation(0.1f, walk);
+//        walk = atlas.findRegions("walk");
+//        PlayerWalkL = new Animation(0.1f, walk);
+//        for(TextureRegion r: PlayerWalkL.getKeyFrames()){
+//            r.flip(true, false);
+//        }
+        
+        
     }
 }

@@ -7,7 +7,7 @@ package Model;
 import com.badlogic.gdx.math.Vector2;
 
 /**
- *
+ *creates the final boss
  * @author NamePending
  */
 public class KingBoss extends Entity {
@@ -31,22 +31,42 @@ public class KingBoss extends Entity {
         health = 3;
     }
 
+    /**
+     *sees if the boss is facing left
+     * @return true/false
+     */
     public boolean isFacingLeft() {
         return isFacingLeft;
     }
 
+    /**
+     *gets the bosses time in a state 
+     * @return state time
+     */
     public float getStateTime() {
         return stateTime;
     }
 
+    /**
+     *finds the bosses state
+     * @return state
+     */
     public State getState() {
         return state;
     }
 
+    /**
+     *gets the side to side velocity of the king
+     * @return velocity in x-axis
+     */
     public float getVelX() {
         return velocity.x;
     }
 
+    /**
+     *gets the up and down velocity of the golem
+     * @return velocity in the y-axis
+     */
     public float getVelY() {
         return velocity.y;
     }

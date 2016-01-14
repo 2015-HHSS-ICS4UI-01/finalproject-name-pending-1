@@ -32,6 +32,7 @@ public class MainGame implements Screen {
 
     @Override
     public void show() {
+        
     }
 
     @Override

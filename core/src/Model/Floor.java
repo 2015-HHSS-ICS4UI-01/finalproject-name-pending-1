@@ -5,7 +5,7 @@
 package Model;
 
 /**
- *
+ *makes the floors(or walls) for the game
  * @author NamePending
  */
 public class Floor extends Entity {

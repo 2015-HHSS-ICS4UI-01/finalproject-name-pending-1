@@ -7,7 +7,7 @@ package Model;
 import com.badlogic.gdx.math.Vector2;
 
 /**
- *
+ *creates the player
  * @author NamePending
  */
 public class Player extends Entity {
@@ -31,6 +31,10 @@ public class Player extends Entity {
         velocity = new Vector2(0, 0);
     }
 
+    /**
+     * updates the player with gravity, stops the player if they are going too slow, switches/updates states
+     * @param delta 
+     */
     public void update(float delta) {
         acceleration.y = -9.8f;
         velocity.mulAdd(acceleration, delta);
@@ -53,22 +57,41 @@ public class Player extends Entity {
         }
     }
 
+    /**
+     * checks to see if the player is facing left
+     * @return true/false
+     */
     public boolean isFacingLeft() {
         return isFacingLeft;
     }
 
+    /**
+     * finds the time the player spent in a state
+     * @return state time
+     */
     public float getStateTime() {
         return stateTime;
     }
 
+    /**
+     * gets the state of the player
+     * @return state
+     */
     public State getState() {
         return state;
     }
 
+    /**
+     * gets horizontal velocity of the player
+     * @return velocity in the x-axis
+     */
     public float getVelX() {
         return velocity.x;
     }
 
+    /*&*
+     * gets the vertical 
+     */
     public float getVelY() {
         return velocity.y;
     }
