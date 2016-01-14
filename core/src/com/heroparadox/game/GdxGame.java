@@ -23,18 +23,17 @@ public class GdxGame extends Game {
  
 
 
-        public GdxGame() {
-                mainMenuScreen = new MainMenuScreen(this);
-                mainGame = new MainGame(this);
-                setScreen(mainMenuScreen);              
+        public GdxGame() {             
         }
        
        public void setScreen(Screen s){
-           setScreen(s);
+           this.setScreen(s);
        }
 
     @Override
     public void create() {
-        
+        mainMenuScreen = new MainMenuScreen(this);
+        mainGame = new MainGame(this);
+        setScreen(mainMenuScreen); 
     }
  }

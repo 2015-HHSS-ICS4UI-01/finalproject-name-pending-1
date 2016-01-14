@@ -22,7 +22,7 @@ public class WorldRenderer {
 
     public final int WIDTH = 1000, HEIGHT = 1000;
     private OrthographicCamera camera;
-    private Player mitch;
+    private Player player;
     private SpriteBatch batch;
     private Viewport viewport;
     private World world;
@@ -31,7 +31,7 @@ public class WorldRenderer {
     public WorldRenderer(World w) {
 
         world = w;
-        mitch = world.getPlayer();
+        player = world.getPlayer();
         
         
         camera = new OrthographicCamera();
@@ -64,12 +64,19 @@ public class WorldRenderer {
         Gdx.gl20.glClearColor(0, 0, 0, 1);
         Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT);
         
-        camera.position.x = Math.max(mitch.getX(), WIDTH / 2);
+        camera.position.x = Math.max(player.getX(), WIDTH / 2);
         camera.update();
         
         batch.setProjectionMatrix(camera.combined);
         batch.begin();
-        batch.draw(AssetManager.PlayerStand, 100, 100, 25, 25);
+        batch.draw(AssetManager.background, 0, 1000);
+        for (Floor f : world.getFloor()) {
+            batch.draw(AssetManager.DirtFloor, f.getX(), f.getY());
+        }
+        if (player.getState() == Player.State.STANDING) {
+            batch.draw(AssetManager.PlayerStand, 500, 500, 25, 25);
+        }
+        System.out.println("Tries to draw stuff but fails miserably");
         batch.end();
     }
 }
