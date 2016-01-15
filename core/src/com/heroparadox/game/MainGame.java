@@ -8,7 +8,6 @@ import Model.Player;
 import Model.World;
 import Screens.WorldRenderer;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
@@ -20,14 +19,14 @@ import com.badlogic.gdx.Screen;
 public class MainGame implements Screen {
 
     private World world;
-    private Player mitch;
+    private Player player;
     private WorldRenderer renderer;
     GdxGame game;
     
     public MainGame(GdxGame game) {
         this.game = game;
         world = new World();
-        mitch = world.getPlayer();
+        player = world.getPlayer();
         renderer = new WorldRenderer(world);
     }
 
@@ -37,13 +36,24 @@ public class MainGame implements Screen {
 
     @Override
     public void render(float deltaTime) {
-        if (mitch.getState() != Player.State.FALLEN && mitch.getState() != Player.State.FROZEN) {
-            if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
-                mitch.setFacingL(true);
-                mitch.setState(Player.State.RUNNING);
+        if(Gdx.input.isKeyPressed(Keys.ESCAPE)){
+            game.changeScreen(game.pausedGameScreen);
+        }
+        
+        if (player.getState() != Player.State.FALLEN && player.getState() != Player.State.FROZEN) {
+            if (player.getState() != Player.State.ATTACKING && player.getState() != Player.State.CROUCHING && player.getState() != Player.State.BLOCKING &&
+                    !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
+                if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D)) {
+                    player.setVelX(-2f);
+                    player.setState(Player.State.RUNNING);
+                }
+                if (!Gdx.input.isKeyPressed(Keys.A) && Gdx.input.isKeyPressed(Keys.D)) {
+                    player.setVelX(2f);
+                    player.setState(Player.State.RUNNING);
+                }
             }
             if (!Gdx.input.isKeyPressed(Keys.A) && Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
-                mitch.setFacingL(false);
+                player.setFacingL(false);
             }
             if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
                 
@@ -55,11 +65,12 @@ public class MainGame implements Screen {
             if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && Gdx.input.isButtonPressed(Buttons.RIGHT)) {
             }
         }
+        renderer.render(deltaTime);
     }
 
     @Override
     public void resize(int width, int height) {
-        renderer.resize(width, height);
+        renderer.resize(renderer.WIDTH, renderer.HEIGHT);
     }
 
     @Override

@@ -11,7 +11,6 @@ package com.heroparadox.game;
 
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -40,7 +39,6 @@ public class MainMenuScreen implements Screen {
             this.game = game;
             camera = new OrthographicCamera();
             viewport = new FitViewport(V_WIDTH, V_HEIGHT, camera);
-            logo = new Texture("badlogic.jpg");
         }
         
         @Override
