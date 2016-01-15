@@ -21,20 +21,19 @@ public class World {
     }
 
     public void demoLevel() {
-        player = new Player(16, 16, 16, 32);
+        player = new Player(0, 50, 25, 25);
         for (int i = 0; i < 50; i++) {
-            Floor b = new Floor(i * 16, 0, 16, 16);
+            Floor b = new Floor(i * 50, 0, 50, 50);
             Floors.add(b);
         }
-
-        Floors.add(new Floor(48, 16, 16, 16));
-        Floors.add(new Floor(96, 32, 16, 16));
-        Floors.add(new Floor(112, 32, 16, 16));
-        Floors.add(new Floor(128, 96, 16, 16));
-        Floors.add(new Floor(112, 96, 16, 16));
+        Floors.add(new Floor(50, 50, 50, 50));
+        Floors.add(new Floor(300, 50, 50, 50));
+        Floors.add(new Floor(350, 50, 50, 50));
+        Floors.add(new Floor(400, 150, 50, 50));
+        Floors.add(new Floor(450, 150, 50, 50));
     }
 
-    public void update(float Delta) {
+    public void update(float deltaTime) {
     }
 
     public Player getPlayer() {
