@@ -39,19 +39,19 @@ public class MainGame implements Screen {
         if(Gdx.input.isKeyPressed(Keys.ESCAPE)){
             game.changeScreen(game.pausedGameScreen);
         }
-        
-//        if (player.getState() != Player.State.FALLEN && player.getState() != Player.State.FROZEN) {
-//            if (player.getState() != Player.State.ATTACKING && player.getState() != Player.State.CROUCHING && player.getState() != Player.State.BLOCKING &&
-//                    !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
-//                if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D)) {
-//                    player.setVelX(-2f);
-//                    player.setState(Player.State.RUNNING);
-//                }
-//                if (!Gdx.input.isKeyPressed(Keys.A) && Gdx.input.isKeyPressed(Keys.D)) {
-//                    player.setVelX(2f);
-//                    player.setState(Player.State.RUNNING);
-//                }
-//            }
+        System.out.println(player.getState());
+        if (player.getState() != Player.State.FALLEN && player.getState() != Player.State.FROZEN) {
+            if (player.getState() != Player.State.ATTACKING && player.getState() != Player.State.CROUCHING && player.getState() != Player.State.BLOCKING &&
+                    !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
+                if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D)) {
+                    player.setVelX(-2f);
+                    player.setState(Player.State.RUNNING);
+                }
+                if (!Gdx.input.isKeyPressed(Keys.A) && Gdx.input.isKeyPressed(Keys.D)) {
+                    player.setVelX(2f);
+                    player.setState(Player.State.RUNNING);
+                }
+            }
 //            if (!Gdx.input.isKeyPressed(Keys.A) && Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
 //                player.setFacingL(false);
 //            }
@@ -64,7 +64,7 @@ public class MainGame implements Screen {
 //            }
 //            if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && Gdx.input.isButtonPressed(Buttons.RIGHT)) {
 //            }
-//        }
+        }
         renderer.render(deltaTime);
     }
 

@@ -1,0 +1,61 @@
+
+pack.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+pauseScreen
+  rotate: false
+  xy: 0, 0
+  size: 1280, 1024
+  orig: 1280, 1024
+  offset: 0, 0
+  index: -1
+background
+  rotate: false
+  xy: 1280, 274
+  size: 1000, 750
+  orig: 1000, 750
+  offset: 0, 0
+  index: -1
+start screen
+  rotate: false
+  xy: 2280, 624
+  size: 800, 400
+  orig: 800, 400
+  offset: 0, 0
+  index: -1
+Logo
+  rotate: false
+  xy: 1280, 122
+  size: 1047, 152
+  orig: 1047, 152
+  offset: 0, 0
+  index: -1
+Mitch
+  rotate: false
+  xy: 3080, 574
+  size: 200, 450
+  orig: 200, 450
+  offset: 0, 0
+  index: -1
+badlogic
+  rotate: false
+  xy: 3280, 768
+  size: 256, 256
+  orig: 256, 256
+  offset: 0, 0
+  index: -1
+Dirt
+  rotate: false
+  xy: 1280, 72
+  size: 50, 50
+  orig: 50, 50
+  offset: 0, 0
+  index: -1
+white
+  rotate: false
+  xy: 2280, 599
+  size: 25, 25
+  orig: 25, 25
+  offset: 0, 0
+  index: -1
