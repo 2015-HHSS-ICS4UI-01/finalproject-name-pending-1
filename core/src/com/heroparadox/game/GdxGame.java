@@ -26,7 +26,7 @@ public class GdxGame extends Game {
         public GdxGame() {             
         }
        
-       public void setScreen(Screen s){
+       public void changeScreen(Screen s){
            this.setScreen(s);
        }
 
