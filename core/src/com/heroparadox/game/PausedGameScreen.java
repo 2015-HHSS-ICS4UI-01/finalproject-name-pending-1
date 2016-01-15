@@ -4,9 +4,7 @@
  */
 package com.heroparadox.game;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -43,9 +41,9 @@ GdxGame game; // Note it's "MyGame" not "Game"
         @Override
         public void render(float delta) {
             //render the main menu picture
-             if (Gdx.input.isButtonPressed(Keys.SPACE)) 
+             if (Gdx.input.isKeyPressed(Keys.SPACE)) 
                  game.setScreen(game.mainGame);
-             else if (Gdx.input.isButtonPressed(Keys.ESCAPE)) 
+             else if (Gdx.input.isKeyPressed(Keys.ESCAPE)) 
                  game.setScreen(game.mainMenuScreen);
              
              
@@ -61,13 +59,11 @@ GdxGame game; // Note it's "MyGame" not "Game"
 
        @Override
         public void show() {
-             // called when this screen is set as the screen with game.setScreen();
         }
  
 
        @Override
         public void hide() {
-             // called when current screen changes from this to a different screen
         }
  
 
@@ -83,6 +79,5 @@ GdxGame game; // Note it's "MyGame" not "Game"
 
        @Override
         public void dispose() {
-                // never called automatically
         }
 }
