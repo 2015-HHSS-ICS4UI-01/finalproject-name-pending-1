@@ -25,7 +25,7 @@ GdxGame game; // Note it's "MyGame" not "Game"
         private Viewport viewport;
         private OrthographicCamera camera;
         private SpriteBatch batch;
-        private Texture logo;
+        private Texture image;
     
     
 
@@ -33,7 +33,8 @@ GdxGame game; // Note it's "MyGame" not "Game"
             this.game = game;
             camera = new OrthographicCamera();
             viewport = new FitViewport(WIDTH, HEIGHT, camera);
-            logo = new Texture("pauseScreen.png");
+            batch = new SpriteBatch();
+            image = new Texture("pauseScreen.png");
             
             camera.position.x = WIDTH / 2;
             camera.position.y = HEIGHT / 2;
@@ -48,7 +49,11 @@ GdxGame game; // Note it's "MyGame" not "Game"
             else if(Gdx.input.isButtonPressed(Keys.ESCAPE))
                 game.setScreen(game.mainMenuScreen);
                 
-                logo = new Texture("pauseScreen.png");
+        batch.begin();
+        
+        batch.draw(image, 0, 0);
+       
+        batch.end();
                       
         }
  

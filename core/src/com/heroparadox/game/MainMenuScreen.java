@@ -31,7 +31,7 @@ public class MainMenuScreen implements Screen {
         private Viewport viewport;
         private OrthographicCamera camera;
         private SpriteBatch batch;
-        private Texture logo;
+        private Texture image;
     
     
 
@@ -39,6 +39,9 @@ public class MainMenuScreen implements Screen {
             this.game = game;
             camera = new OrthographicCamera();
             viewport = new FitViewport(V_WIDTH, V_HEIGHT, camera);
+            batch = new SpriteBatch();
+            image = new Texture ("startScreen.png");
+            
         }
         
         @Override
@@ -47,7 +50,11 @@ public class MainMenuScreen implements Screen {
              if (Gdx.input.isButtonPressed(Keys.BUTTON_L1)) 
                  game.setScreen(game.mainGame);
              
-             
+        batch.begin();
+        // list of things to draw
+        batch.draw(image, 0, 0);
+        // finished listing things to draw
+        batch.end(); 
                  
         }
  

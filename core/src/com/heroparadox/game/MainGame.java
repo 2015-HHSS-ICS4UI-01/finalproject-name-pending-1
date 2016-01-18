@@ -36,43 +36,54 @@ public class MainGame implements Screen {
 
     @Override
     public void render(float deltaTime) {
-        if (Gdx.input.isKeyPressed(Keys.ESCAPE)) {
+        if (Gdx.input.isKeyPressed(Keys.ESCAPE)) 
             game.changeScreen(game.pausedGameScreen);
-        }
-        if (player.getState() != Player.State.FALLEN && player.getState() != Player.State.FROZEN) {
-            System.out.println(player.getState());
-            if ((player.getState() == Player.State.ATTACKING || player.getState() == Player.State.BLOCKING) && player.getStateTime() > 1f) {
-                player.setState(Player.State.STANDING);
-            }
-//            if (player.getState() != Player.State.ATTACKING && player.getState() != Player.State.CROUCHING && player.getState() != Player.State.BLOCKING &&
-//                    !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
-//                if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D)) {
-//                    player.setVelX(-2f);
-//                    player.setState(Player.State.RUNNING);
-//                }
-//                if (!Gdx.input.isKeyPressed(Keys.A) && Gdx.input.isKeyPressed(Keys.D)) {
-//                    player.setVelX(2f);
-//                    player.setState(Player.State.RUNNING);
-//                }
-//            }
-//            if (!Gdx.input.isKeyPressed(Keys.A) && Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
-//                player.setFacingL(false);
-//            }
-//            if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
-//                
-//            }
-//            if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
-//            }
-            if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
-                player.setState(Player.State.ATTACKING);
-            }
-            if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && Gdx.input.isButtonPressed(Buttons.RIGHT)) {
-                player.setState(Player.State.BLOCKING);
-            }
-        }
-        renderer.render(deltaTime);
-    }
 
+        if(Gdx.input.isKeyPressed(Keys.A)){
+            player.setVelX(-2f);
+            System.out.println(player.getVelX());
+           // System.out.println("A");
+        }else if(Gdx.input.isKeyPressed(Keys.D)){
+            player.setVelX(2f);
+            System.out.println(player.getVelX());
+           // System.out.println("D");
+        }
+//        System.out.println(player.getX());
+//      if (player.getState() != Player.State.FALLEN && player.getState() != Player.State.FROZEN) {
+//          System.out.println(player.getState());
+//          if ((player.getState() == Player.State.ATTACKING || player.getState() == Player.State.BLOCKING) && player.getStateTime() > 1f) {
+//              player.setState(Player.State.STANDING);
+//          }
+//          if (player.getState() != Player.State.ATTACKING && player.getState() != Player.State.CROUCHING && player.getState() != Player.State.BLOCKING &&
+//                  !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
+//            if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D)) {
+//                player.setVelX(-2f);
+//                player.setState(Player.State.RUNNING);
+//            }
+//            if (!Gdx.input.isKeyPressed(Keys.A) && Gdx.input.isKeyPressed(Keys.D)) {
+//                player.setVelX(2f);
+//                player.setState(Player.State.RUNNING);
+//            }
+//          }
+//          if (!Gdx.input.isKeyPressed(Keys.A) && Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
+//              player.setFacingL(false);
+//          }
+//          if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
+//              
+//          }
+//          if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
+//              
+//          }
+//            if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
+//                player.setState(Player.State.ATTACKING);
+//            }
+//            if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && Gdx.input.isButtonPressed(Buttons.RIGHT)) {
+//                player.setState(Player.State.BLOCKING);
+//            }
+            renderer.render(deltaTime);
+           //System.out.println("I AM LOGICING");
+        }
+        
     @Override
     public void resize(int width, int height) {
         renderer.resize(renderer.WIDTH, renderer.HEIGHT);
