@@ -17,7 +17,7 @@ public class Player extends Entity {
         BLOCKING, ATTACKING, RUNNING, STANDING, FROZEN, JUMPING, CROUCHING, FALLEN
     }
     private boolean isFacingLeft;
-    private final float MAX_VELOCITY = 2f, TERMINAL_VELOCITY = 4f, DAMP = 0.9f;
+    private final float MAX_VELOCITY = 2f, TERMINAL_VELOCITY = 4f, DAMP = 0.7f;
     private float stateTime;
     private State state;
     private Vector2 acceleration, velocity;
@@ -29,13 +29,11 @@ public class Player extends Entity {
         stateTime = 0;
         state = State.STANDING;
         acceleration = new Vector2(0, 0);
-        velocity = new Vector2(0, 0);
-        x=this.x;
-        
+        velocity = new Vector2(0, 0);      
     }
 
     public void update(float delta) {
-        acceleration.y = -9.8f;
+//        acceleration.y = -9.8f;
         
         velocity.mulAdd(acceleration, delta);
         
