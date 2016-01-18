@@ -17,7 +17,7 @@ background
   orig: 1000, 750
   offset: 0, 0
   index: -1
-start screen
+startScreen
   rotate: false
   xy: 2280, 624
   size: 800, 400
