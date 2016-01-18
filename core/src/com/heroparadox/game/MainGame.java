@@ -12,6 +12,7 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import jdk.nashorn.internal.ir.Block;
 
 /**
@@ -24,12 +25,16 @@ public class MainGame implements Screen {
     private Player player;
     private WorldRenderer renderer;
     GdxGame game;
+    Music music;
 
     public MainGame(GdxGame game) {
         this.game = game;
         world = new World();
         player = world.getPlayer();
         renderer = new WorldRenderer(world);
+        music = Gdx.audio.newMusic(Gdx.files.internal("1.mp3"));
+        music.setVolume(0.5f);                 // sets the volume to half the maximum volume
+        music.setLooping(true);                // will repeat playback until music.stop() is called
     }
 
     @Override
@@ -38,6 +43,7 @@ public class MainGame implements Screen {
 
     @Override
     public void render(float deltaTime) {
+        music.play();
         if (Gdx.input.isKeyPressed(Keys.ESCAPE)) 
             game.changeScreen(game.pausedGameScreen);
 
