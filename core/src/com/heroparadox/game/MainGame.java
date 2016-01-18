@@ -9,11 +9,10 @@ import Model.Player;
 import Model.World;
 import Screens.WorldRenderer;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
-import jdk.nashorn.internal.ir.Block;
+import com.badlogic.gdx.graphics.GL20;
 
 /**
  *
@@ -43,22 +42,25 @@ public class MainGame implements Screen {
 
     @Override
     public void render(float deltaTime) {
+        // clear the screen with black
+        Gdx.gl20.glClearColor(0, 0, 0, 1);
+        Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        
         music.play();
+        
         if (Gdx.input.isKeyPressed(Keys.ESCAPE)) 
             game.changeScreen(game.pausedGameScreen);
 
         if(Gdx.input.isKeyPressed(Keys.A)){
             player.setVelX(-3f);
-            System.out.println(player.getVelX());
         }else if(Gdx.input.isKeyPressed(Keys.D)){
             player.setVelX(3f);
-            System.out.println(player.getVelX());
         }
-        System.out.println(player.getX());
+        
         
         //go through each block
         for (Floor b: world.getFloor()){
-            //if mario is hitting a bloclk
+            //if player is hitting a bloclk
             if(player.isColliding(b)){
                 float overX = player.getOverlapX(b);
                 float overY = player.getOverlapY(b);
@@ -86,8 +88,8 @@ public class MainGame implements Screen {
                         //player is above the block
                         if(player.getY() > b.getY()){
                             player.addToPosition(0, overY);
-//                            if(player.getState() == player.State.JUMPING)
-//                                player.setState(player.State.STANDING);
+                            if(player.getState() == Player.State.JUMPING)
+                                player.setState(Player.State.STANDING);
                         }else{
                             player.addToPosition(0, -overY);
 
@@ -130,7 +132,7 @@ public class MainGame implements Screen {
 //                player.setState(Player.State.BLOCKING);
 //            }
         player.update(deltaTime);
-            renderer.render(deltaTime);
+        renderer.render(deltaTime);
         }
         
     @Override

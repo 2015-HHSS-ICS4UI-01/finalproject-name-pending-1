@@ -34,6 +34,7 @@ public class GdxGame extends Game {
     public void create() {
         mainMenuScreen = new MainMenuScreen(this);
         mainGame = new MainGame(this);
+        pausedGameScreen = new PausedGameScreen(this);
         changeScreen(mainMenuScreen); 
     }
  }
