@@ -70,7 +70,7 @@ public final class WorldRenderer {
             batch.draw(AssetManager.DirtFloor, f.getX(), f.getY());
         }
         if (player.getState() == Player.State.STANDING) {
-            batch.draw(AssetManager.PlayerStand, 25, 25);
+            batch.draw(AssetManager.PlayerStand, player.getX(), player.getY());
         }
         batch.end();
     }

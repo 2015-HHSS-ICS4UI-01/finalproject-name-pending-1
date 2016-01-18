@@ -4,9 +4,7 @@
  */
 package com.heroparadox.game;
 
-import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.GL20;
@@ -63,13 +61,11 @@ GdxGame game; // Note it's "MyGame" not "Game"
 
        @Override
         public void show() {
-             // called when this screen is set as the screen with game.setScreen();
         }
  
 
        @Override
         public void hide() {
-             // called when current screen changes from this to a different screen
         }
  
 
@@ -85,6 +81,5 @@ GdxGame game; // Note it's "MyGame" not "Game"
 
        @Override
         public void dispose() {
-                // never called automatically
         }
 }
