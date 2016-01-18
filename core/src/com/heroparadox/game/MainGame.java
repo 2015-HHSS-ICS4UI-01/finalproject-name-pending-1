@@ -41,23 +41,19 @@ public class MainGame implements Screen {
         }
         if (player.getState() != Player.State.FALLEN && player.getState() != Player.State.FROZEN) {
             if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D)) {
-                player.setVelX(-3f);
-//                System.out.println(player.getVelX());
+                player.setVelX(-5f);
             }
             if (Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.A)) {
-                player.setVelX(3f);
-//                System.out.println(player.getVelX());
+                player.setVelX(5f);
             }
-            System.out.println(player.getVelY());
             if (Gdx.input.isKeyPressed(Keys.SPACE)) {
                 player.jump();
             }
         }
-//        System.out.println(player.getX());
         player.update(deltaTime);
         //go through each block
         for (Floor b : world.getFloor()) {
-            //if mario is hitting a bloclk
+            //if player is hitting a block
             if (player.isColliding(b)) {
                 float overX = player.getOverlapX(b);
                 float overY = player.getOverlapY(b);
@@ -85,8 +81,8 @@ public class MainGame implements Screen {
                         //player is above the block
                         if (player.getY() > b.getY()) {
                             player.addToPosition(0f, overY);
-//                            if(player.getState() == player.State.JUMPING)
-//                                player.setState(player.State.STANDING);
+                            if(player.getState() == Player.State.JUMPING)
+                                player.setState(Player.State.STANDING);
                         } else {
                             player.addToPosition(0f, -overY);
 
@@ -96,8 +92,6 @@ public class MainGame implements Screen {
                 }
             }
         }
-        System.out.println(player.getVelY());
-
         renderer.render(deltaTime);
     }
 
