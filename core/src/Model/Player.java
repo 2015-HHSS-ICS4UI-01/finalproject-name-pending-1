@@ -33,8 +33,8 @@ public class Player extends Entity {
     }
 
     public void update(float delta) {
-//        acceleration.y = -9.8f;
-        
+        acceleration.y = -9.8f;
+      
         velocity.mulAdd(acceleration, delta);
         
         velocity.x = velocity.x * DAMP;
