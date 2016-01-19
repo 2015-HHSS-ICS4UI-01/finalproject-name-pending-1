@@ -69,9 +69,10 @@ public final class WorldRenderer {
         for (Floor f : world.getFloor()) {
             batch.draw(AssetManager.DirtFloor, f.getX(), f.getY());
         }
-        if (player.getState() == Player.State.STANDING) {
-            batch.draw(AssetManager.PlayerStand, player.getX(), player.getY());
-        }
+//        if (player.getState() == Player.State.STANDING) {
+            batch.draw(AssetManager.PlayerStand, player.getX(), player.getY()); //draw the singe sprite right now
+//        }
         batch.end();
+        //System.out.println("I AM DRAWING");
     }
 }

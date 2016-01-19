@@ -13,6 +13,8 @@ package com.heroparadox.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -31,29 +33,45 @@ public class MainMenuScreen implements Screen {
         private Viewport viewport;
         private OrthographicCamera camera;
         private SpriteBatch batch;
-        private Texture logo;
-    
-    
+        private Texture image;
+        private Music music;
+        float position;
 
         public MainMenuScreen(GdxGame game){
             this.game = game;
             camera = new OrthographicCamera();
             viewport = new FitViewport(V_WIDTH, V_HEIGHT, camera);
+            batch = new SpriteBatch();
+            image = new Texture ("startScreen.png");
+            music = Gdx.audio.newMusic(Gdx.files.internal("1.mp3"));
+            music.setVolume(0.5f);                 // sets the volume to half the maximum volume
+            music.setLooping(true);                // will repeat playback until music.stop() is called
         }
         
         @Override
         public void render(float delta) {
-            //render the main menu picture
-             if (Gdx.input.isButtonPressed(Keys.BUTTON_L1)) 
-                 game.setScreen(game.mainGame);
+            // clear the screen with black
+        Gdx.gl20.glClearColor(0, 0, 0, 1);
+        Gdx.gl20.glClear(GL20.GL_COLOR_BUFFER_BIT);
+            
+        music.play();
+        //render the main menu picture
+        if (Gdx.input.isButtonPressed(Keys.BUTTON_L1)){ 
+            game.setScreen(game.mainGame); 
+        }
              
-             
+         batch.begin();
+         // list of things to draw
+         batch.draw(image, 0, 0);
+         // finished listing things to draw
+         batch.end(); 
                  
         }
  
 
        @Override
         public void resize(int width, int height) {
+            viewport.update(width, height);
         }
  
 
@@ -83,5 +101,6 @@ public class MainMenuScreen implements Screen {
         public void dispose() {
                 // never called automatically
         }
+        
  }
 
