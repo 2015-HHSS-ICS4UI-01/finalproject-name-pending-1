@@ -141,7 +141,7 @@ public class MainGame implements Screen {
 //            if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && Gdx.input.isButtonPressed(Buttons.RIGHT)) {
 //                player.setState(Player.State.BLOCKING);
 //            }
-        player.update(deltaTime);
+        
         renderer.render(deltaTime);
         }
         

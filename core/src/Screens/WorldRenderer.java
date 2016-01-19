@@ -20,8 +20,9 @@ import com.badlogic.gdx.utils.viewport.Viewport;
  */
 public final class WorldRenderer {
 
-    public final int WIDTH = 1000, HEIGHT = 1000;
+    public final int WIDTH = 1280, HEIGHT = 1024;
     private OrthographicCamera camera;
+    private OrthographicCamera stationaryCamera;
     private Player player;
     private SpriteBatch batch;
     private Viewport viewport;
@@ -36,11 +37,14 @@ public final class WorldRenderer {
 
         camera = new OrthographicCamera();
         viewport = new FitViewport(WIDTH, HEIGHT, camera);
+        stationaryCamera = new OrthographicCamera(WIDTH,HEIGHT);
+        stationaryCamera.position.set(WIDTH/2, HEIGHT/2, 0);
         batch = new SpriteBatch();
 
         camera.position.x = WIDTH / 2;
         camera.position.y = HEIGHT / 2;
         camera.update();
+        stationaryCamera.update();
 
         AssetManager.load();
         camera.update();
@@ -51,6 +55,7 @@ public final class WorldRenderer {
 
     public void resize(int width, int height) {
         viewport.update(width, height);
+       
     }
 
     public void render(float deltaTime) {
@@ -60,11 +65,17 @@ public final class WorldRenderer {
         camera.position.x = Math.max(player.getX(), WIDTH / 2);
         camera.update();
 
+        batch.setProjectionMatrix(stationaryCamera.combined);
+        batch.begin();
+
+        batch.draw(AssetManager.background, 0, 0);
+        batch.end();
+        
+        
         batch.setProjectionMatrix(camera.combined);
 
         batch.begin();
 
-        batch.draw(AssetManager.background, 0, 0);
         
         for (Floor f : world.getFloor()) {
             batch.draw(AssetManager.DirtFloor, f.getX(), f.getY());

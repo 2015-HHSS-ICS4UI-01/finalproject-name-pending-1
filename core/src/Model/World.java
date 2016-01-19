@@ -17,7 +17,7 @@ public class World {
 
     public World() {
         
-        player = new Player(0, 50, 25, 25);
+        player = new Player(1895, 50, 25, 25);
         Floors = new Array<Floor>();
         demoLevel();
         
@@ -25,13 +25,11 @@ public class World {
 
     public void demoLevel() {
 
-        for (int i = 0; i < 50; i++) {
+        for (int i = 0; i < 51; i++) {
             Floor b = new Floor(i * 50, 0, 50, 50);
             Floors.add(b);
         }
-        Floors.add(new Floor(50, 50, 50, 50));
-        Floors.add(new Floor(300, 50, 50, 50));
-        Floors.add(new Floor(350, 50, 50, 50));
+        
     }
 
     public void update(float deltaTime) {
