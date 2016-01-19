@@ -80,6 +80,9 @@ public final class WorldRenderer {
         for (Floor f : world.getFloor()) {
             batch.draw(AssetManager.dirtFloor, f.getX(), f.getY(), 101, 100);
         }
+        for (Floor f : world.getFloorBrick()){
+            batch.draw(AssetManager.dirtFloor, f.getX(),f.getY(),100,100);
+        }
 //        if (player.getState() == Player.State.STANDING) {
             batch.draw(AssetManager.player, player.getX(), player.getY()-5); //draw the singe sprite right now
 //        }
