@@ -29,9 +29,6 @@ public class World {
             Floor b = new Floor(i * 50, 0, 50, 50);
             Floors.add(b);
         }
-        Floors.add(new Floor(50, 50, 50, 50));
-        Floors.add(new Floor(300, 50, 50, 50));
-        Floors.add(new Floor(350, 50, 50, 50));
     }
 
     public void update(float deltaTime) {
