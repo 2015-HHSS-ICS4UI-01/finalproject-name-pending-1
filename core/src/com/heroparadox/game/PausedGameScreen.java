@@ -60,7 +60,7 @@ GdxGame game; // Note it's "MyGame" not "Game"
                 
             batch.begin();
         
-            batch.draw(image, 0, 0);
+            batch.draw(logo, delta, delta);
        
             batch.end();
                       

@@ -15,6 +15,10 @@ import com.badlogic.gdx.graphics.g2d.TextureRegion;
 public class AssetManager {
     private static TextureAtlas atlas;
     
+    //game screens
+    public static TextureRegion startScreen;
+    public static TextureRegion pauseScreen;
+    
     //bosses
     public static TextureRegion kingBoss;
     public static TextureRegion knightBoss;
@@ -39,6 +43,8 @@ public class AssetManager {
         dirtFloor = atlas.findRegion("grassFloor");
         brickFloor = atlas.findRegion("brickFloor");
         background = atlas.findRegion("background");
+        startScreen = atlas.findRegion("startScreen");
+        pauseScreen = atlas.findRegion("")
         
 //        Array<AtlasRegion> run = atlas.findRegion(walk);
 //        PlayerWalk = new Animation(0.1f, walk);
