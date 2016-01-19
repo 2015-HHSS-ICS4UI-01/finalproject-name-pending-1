@@ -35,7 +35,7 @@ public class MainMenuScreen implements Screen {
         private SpriteBatch batch;
         private Texture image;
         private Music music;
-    
+        float position;
 
         public MainMenuScreen(GdxGame game){
             this.game = game;
@@ -56,8 +56,9 @@ public class MainMenuScreen implements Screen {
             
         music.play();
         //render the main menu picture
-        if (Gdx.input.isButtonPressed(Keys.BUTTON_L1)) 
-            game.setScreen(game.mainGame);
+        if (Gdx.input.isButtonPressed(Keys.BUTTON_L1)){ 
+            game.setScreen(game.mainGame); 
+        }
              
          batch.begin();
          // list of things to draw
@@ -100,5 +101,6 @@ public class MainMenuScreen implements Screen {
         public void dispose() {
                 // never called automatically
         }
+        
  }
 

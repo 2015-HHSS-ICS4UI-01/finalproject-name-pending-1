@@ -23,6 +23,7 @@ public class MainGame implements Screen {
     private World world;
     private Player player;
     private WorldRenderer renderer;
+    private Music music;
     GdxGame game;
 
     public MainGame(GdxGame game) {
@@ -30,6 +31,9 @@ public class MainGame implements Screen {
         world = new World();
         player = world.getPlayer();
         renderer = new WorldRenderer(world);
+        music = Gdx.audio.newMusic(Gdx.files.internal("1.mp3"));
+        music.setVolume(0.5f);                 // sets the volume to half the maximum volume
+        music.setLooping(true);                // will repeat playback until music.stop() is called        
     }
 
     @Override
