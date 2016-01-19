@@ -16,28 +16,28 @@ public class AssetManager {
     private static TextureAtlas atlas;
     
     //bosses
-    public static TextureRegion GolemBoss;
-    public static TextureRegion KingBoss;
-    public static TextureRegion KnightBoss;
-    public static TextureRegion TurtleBoss;
+    public static TextureRegion kingBoss;
+    public static TextureRegion knightBoss;
+    public static TextureRegion turtleBoss;
     
     //floors
-    public static TextureRegion DirtFloor;
-    public static TextureRegion SandFloor;
-    public static TextureRegion CastleFloor;
+    public static TextureRegion dirtFloor;
+    public static TextureRegion brickFloor;
+    public static TextureRegion castleFloor;
     
     //player
-    public static TextureRegion PlayerStand;
-    public static Animation PlayerWalk;
-    public static Animation PlayerWalkL;
+    public static TextureRegion player;
+    public static Animation playerWalk;
+    public static Animation playerWalkL;
     
     //background
     public static TextureRegion background;
     
     public static void load(){
         atlas = new TextureAtlas("pack.pack");
-        PlayerStand = atlas.findRegion("white");
-        DirtFloor = atlas.findRegion("Dirt");
+        player = atlas.findRegion("mitch");
+        dirtFloor = atlas.findRegion("grassFloor");
+        brickFloor = atlas.findRegion("brickFloor");
         background = atlas.findRegion("background");
         
 //        Array<AtlasRegion> run = atlas.findRegion(walk);

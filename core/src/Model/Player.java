@@ -17,7 +17,7 @@ public class Player extends Entity {
         BLOCKING, ATTACKING, RUNNING, STANDING, FROZEN, JUMPING, CROUCHING, FALLEN
     }
     private boolean isFacingLeft;
-    private final float MAX_VELOCITY = 5f, TERMINAL_VELOCITY = 6f, DAMP = 0.7f;
+    private final float MAX_VELOCITY = 7f, TERMINAL_VELOCITY = 6f, DAMP = 0.7f;
     private float stateTime;
     private State state;
     private Vector2 acceleration, velocity;

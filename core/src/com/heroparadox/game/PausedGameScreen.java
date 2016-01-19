@@ -40,7 +40,7 @@ GdxGame game; // Note it's "MyGame" not "Game"
             viewport = new FitViewport(V_WIDTH, V_HEIGHT, camera);
             batch = new SpriteBatch();
             image = new Texture ("pauseScreen.png");
-            music = Gdx.audio.newMusic(Gdx.files.internal("1.mp3"));
+            music = Gdx.audio.newMusic(Gdx.files.internal("music/1.mp3"));
             music.setVolume(0.5f);                 // sets the volume to half the maximum volume
             music.setLooping(true);                // will repeat playback until music.stop() is called
         }

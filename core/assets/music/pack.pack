@@ -10,24 +10,24 @@ background
   orig: 1280, 1024
   offset: 0, 0
   index: -1
+mitch
+  rotate: false
+  xy: 1280, 824
+  size: 100, 200
+  orig: 100, 200
+  offset: 0, 0
+  index: -1
 brickFloor
   rotate: false
-  xy: 1280, 924
+  xy: 1280, 724
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 grassFloor
   rotate: false
-  xy: 1280, 824
+  xy: 1380, 924
   size: 100, 100
   orig: 100, 100
-  offset: 0, 0
-  index: -1
-mitch
-  rotate: false
-  xy: 1280, 627
-  size: 97, 197
-  orig: 97, 197
   offset: 0, 0
   index: -1

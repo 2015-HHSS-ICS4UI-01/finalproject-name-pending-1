@@ -17,7 +17,7 @@ public class World {
 
     public World() {
         
-        player = new Player(1895, 50, 25, 25);
+        player = new Player(1895, 100, 100, 200);
         Floors = new Array<Floor>();
         demoLevel();
         
@@ -25,8 +25,8 @@ public class World {
 
     public void demoLevel() {
 
-        for (int i = 0; i < 51; i++) {
-            Floor b = new Floor(i * 50, 0, 50, 50);
+        for (int i = 0; i < 79; i++) {
+            Floor b = new Floor(i * 100, 0, 100, 100);
             Floors.add(b);
         }
         

@@ -31,7 +31,7 @@ public class MainGame implements Screen {
         world = new World();
         player = world.getPlayer();
         renderer = new WorldRenderer(world);
-        music = Gdx.audio.newMusic(Gdx.files.internal("1.mp3"));
+        music = Gdx.audio.newMusic(Gdx.files.internal("music/1.mp3"));
         music.setVolume(0.5f);                 // sets the volume to half the maximum volume
         music.setLooping(true);                // will repeat playback until music.stop() is called        
     }
@@ -51,17 +51,12 @@ public class MainGame implements Screen {
         if (Gdx.input.isKeyPressed(Keys.ESCAPE)) 
             game.changeScreen(game.pausedGameScreen);
 
-        if(Gdx.input.isKeyPressed(Keys.A)){
-            player.setVelX(-3f);
-        }else if(Gdx.input.isKeyPressed(Keys.D)){
-            player.setVelX(3f);
-        }
         if (player.getState() != Player.State.FALLEN && player.getState() != Player.State.FROZEN) {
             if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D)) {
-                player.setVelX(-5f);
+                player.setVelX(-7f);
             }
             if (Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.A)) {
-                player.setVelX(5f);
+                player.setVelX(7f);
             }
             if (Gdx.input.isKeyPressed(Keys.SPACE)) {
                 player.jump();
