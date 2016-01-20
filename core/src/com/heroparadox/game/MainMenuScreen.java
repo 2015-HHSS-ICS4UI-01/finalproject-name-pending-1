@@ -10,6 +10,7 @@ package com.heroparadox.game;
  */
 
 
+import Screens.AssetManager;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
@@ -33,7 +34,6 @@ public class MainMenuScreen implements Screen {
         private Viewport viewport;
         private OrthographicCamera camera;
         private SpriteBatch batch;
-        private Texture image;
         private Music music;
         float position;
 
@@ -42,10 +42,10 @@ public class MainMenuScreen implements Screen {
             camera = new OrthographicCamera();
             viewport = new FitViewport(V_WIDTH, V_HEIGHT, camera);
             batch = new SpriteBatch();
-            image = new Texture ("startScreen.png");
             music = Gdx.audio.newMusic(Gdx.files.internal("music/1.mp3"));
             music.setVolume(0.5f);                 // sets the volume to half the maximum volume
             music.setLooping(true);                // will repeat playback until music.stop() is called
+            AssetManager.load();
         }
         
         @Override
@@ -62,7 +62,7 @@ public class MainMenuScreen implements Screen {
              
          batch.begin();
          // list of things to draw
-         batch.draw(image, 0, 0);
+         batch.draw(AssetManager.startScreen, 0, 0);
          // finished listing things to draw
          batch.end(); 
                  
