@@ -12,22 +12,29 @@ import com.badlogic.gdx.utils.Array;
  */
 public class World {
 
-    private Array<Floor> Floors;
+    private Array<Floor> floors;
     private Player player;
+    private final Array<Floor> floorsBrick;
 
     public World() {
         
-        player = new Player(0, 50, 25, 25);
-        Floors = new Array<Floor>();
+        player = new Player(1280, 100, 100, 200);
+        floors = new Array<Floor>();
+        floorsBrick = new Array<Floor>();
+        
         demoLevel();
         
     }
 
     public void demoLevel() {
 
-        for (int i = 0; i < 50; i++) {
-            Floor b = new Floor(i * 50, 0, 50, 50);
-            Floors.add(b);
+        for (int i = 0; i < 79; i++) {
+            Floor b = new Floor(i * 100, 0, 100, 100);
+            floors.add(b);
+        }
+        for (int i = 0; i < 3; i++) {
+            Floor b = new Floor(-100,i*100,100,100);
+            floorsBrick.add(b);
         }
     }
 
@@ -39,6 +46,12 @@ public class World {
     }
 
     public Array<Floor> getFloor() {
-        return Floors;
+        return floors;  
     }
+    
+    public Array<Floor> getFloorBrick(){
+        return floorsBrick;
+    }
+    
+    
 }

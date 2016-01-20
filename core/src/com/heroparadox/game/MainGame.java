@@ -34,7 +34,7 @@ public class MainGame implements Screen {
         world = new World();
         player = world.getPlayer();
         renderer = new WorldRenderer(world);
-        music = Gdx.audio.newMusic(Gdx.files.internal("1.mp3"));
+        music = Gdx.audio.newMusic(Gdx.files.internal("music/1.mp3"));
         music.setVolume(0.5f);                 // sets the volume to half the maximum volume
         music.setLooping(true);                // will repeat playback until music.stop() is called        
     }
@@ -103,6 +103,48 @@ public class MainGame implements Screen {
         player.update(deltaTime);
         //go through each block
         for (Floor b: world.getFloor()){
+            //if player is hitting a bloclk
+            if(player.isColliding(b)){
+                float overX = player.getOverlapX(b);
+                float overY = player.getOverlapY(b);
+
+                //just fixing the y if not moving
+                if (player.getVelX() == 0f) {
+                    //player is above the block
+                    if (player.getY() > b.getY()) {
+                        player.addToPosition(0f, overY);
+                    } else {
+                        player.addToPosition(0f, -overY);
+                    }
+                    //fix the smallest overlap
+                    player.setVelY(0f);
+                } else {
+                    //fix the smallest overlap
+                    if (overX < overY) {
+                        //left of the block
+                        if (player.getX() < b.getX()) {
+                            player.addToPosition(-overX, 0f);
+                        } else {
+                            player.addToPosition(overX, 0f);
+                        }
+                    } else {
+                        //player is above the block
+                        if(player.getY() > b.getY()){
+                            player.addToPosition(0, overY);
+                            if(player.getState() == Player.State.JUMPING)
+                                player.setState(Player.State.STANDING);
+                        }else{
+                            player.addToPosition(0, -overY);
+
+                        }
+                        player.setVelY(0f);
+                    }
+                    
+                }
+            }
+        }
+        
+        for (Floor b: world.getFloorBrick()){
             //if player is hitting a bloclk
             if(player.isColliding(b)){
                 float overX = player.getOverlapX(b);
