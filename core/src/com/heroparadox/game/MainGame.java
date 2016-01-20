@@ -9,6 +9,8 @@ import Model.Player;
 import Model.World;
 import Screens.WorldRenderer;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
+import com.badlogic.gdx.Input.Buttons;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
@@ -20,6 +22,7 @@ import com.badlogic.gdx.graphics.GL20;
  */
 public class MainGame implements Screen {
 
+    private boolean holdingLeft, holdingRight;
     private World world;
     private Player player;
     private WorldRenderer renderer;
@@ -51,16 +54,51 @@ public class MainGame implements Screen {
         if (Gdx.input.isKeyPressed(Keys.ESCAPE)) 
             game.changeScreen(game.pausedGameScreen);
 
+        if(Gdx.input.isKeyPressed(Keys.A)){
+            player.setVelX(-3f);
+        }else if(Gdx.input.isKeyPressed(Keys.D)){
+            player.setVelX(3f);
+        }
+        System.out.println(player.getState());
+        if (player.getStateTime() >= 1 && (player.getState() == Player.State.ATTACKING || player.getState() == Player.State.BLOCKING)) {
+            player.setState(Player.State.STANDING);
+            if (Gdx.input.isButtonPressed(Buttons.LEFT)) {
+                holdingLeft = true;
+            }
+            if (Gdx.input.isButtonPressed(Buttons.RIGHT)) {
+                holdingRight = true;
+            }
+        }
+        if (holdingRight && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
+            holdingRight = false;
+        }
+        if (holdingLeft && !Gdx.input.isButtonPressed(Buttons.LEFT)) {
+            holdingLeft = false;
+        }
         if (player.getState() != Player.State.FALLEN && player.getState() != Player.State.FROZEN) {
-            if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D)) {
-                player.setVelX(-7f);
+            if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && player.getState() != Player.State.ATTACKING && player.getX() > 0) {
+                player.setVelX(-5f);
+                player.setState(Player.State.RUNNING);
             }
-            if (Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.A)) {
-                player.setVelX(7f);
+            if (Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.A) && player.getState() != Player.State.ATTACKING) {
+                player.setVelX(5f);
+                player.setState(Player.State.RUNNING);
             }
-            if (Gdx.input.isKeyPressed(Keys.SPACE)) {
+            if (Gdx.input.isKeyPressed(Keys.SPACE) && player.hasPegasusBoots() && player.getState() != Player.State.ATTACKING) {
                 player.jump();
             }
+            if (Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT) && player.getState() != Player.State.ATTACKING && !holdingLeft) {
+                player.setState(Player.State.ATTACKING);
+            }
+            if (Gdx.input.isButtonPressed(Buttons.RIGHT) && !Gdx.input.isButtonPressed(Buttons.LEFT) && player.getState() != Player.State.BLOCKING && !holdingRight) {
+                player.setState(Player.State.BLOCKING);
+            }
+            if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
+                player.setState(Player.State.STANDING);
+            }
+        }
+        if (player.getX() <= 0) {
+            player.addToPosition(Math.abs(player.getX()), 0);
         }
         player.update(deltaTime);
         //go through each block
@@ -178,7 +216,7 @@ public class MainGame implements Screen {
 //            if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && Gdx.input.isButtonPressed(Buttons.RIGHT)) {
 //                player.setState(Player.State.BLOCKING);
 //            }
-        
+        player.update(deltaTime);
         renderer.render(deltaTime);
         }
         
