@@ -4,6 +4,7 @@
  */
 package com.heroparadox.game;
 
+import Screens.AssetManager;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
 import com.badlogic.gdx.Screen;
@@ -29,7 +30,6 @@ GdxGame game; // Note it's "MyGame" not "Game"
         private Viewport viewport;
         private OrthographicCamera camera;
         private SpriteBatch batch;
-        private Texture image;
         Music music;
     
     
@@ -39,10 +39,10 @@ GdxGame game; // Note it's "MyGame" not "Game"
             camera = new OrthographicCamera();
             viewport = new FitViewport(V_WIDTH, V_HEIGHT, camera);
             batch = new SpriteBatch();
-            image = new Texture ("pauseScreen.png");
             music = Gdx.audio.newMusic(Gdx.files.internal("music/1.mp3"));
             music.setVolume(0.5f);                 // sets the volume to half the maximum volume
             music.setLooping(true);                // will repeat playback until music.stop() is called
+            AssetManager.load();
         }
         
         @Override
@@ -60,7 +60,7 @@ GdxGame game; // Note it's "MyGame" not "Game"
                 
             batch.begin();
         
-            batch.draw(image, 0, 0);
+            batch.draw(AssetManager.pauseScreen, 0, 0);
        
             batch.end();
                       
