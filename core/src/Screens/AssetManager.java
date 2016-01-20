@@ -44,7 +44,7 @@ public class AssetManager {
         brickFloor = atlas.findRegion("brickFloor");
         background = atlas.findRegion("background");
         startScreen = atlas.findRegion("startScreen");
-        pauseScreen = atlas.findRegion("")
+//        pauseScreen = atlas.findRegion("")
         
 //        Array<AtlasRegion> run = atlas.findRegion(walk);
 //        PlayerWalk = new Animation(0.1f, walk);
