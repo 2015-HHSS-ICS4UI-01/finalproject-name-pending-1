@@ -14,16 +14,17 @@ public class World {
 
     private Array<Floor> floors;
     private Player player;
+    private KingBoss king;
+    private GoldBlock gold;
     private final Array<Floor> floorsBrick;
 
     public World() {
-        
         player = new Player(1280, 100, 100, 200);
+        king = new KingBoss(6400, 100, 100, 200);
+        gold = new GoldBlock(6400, 100, 20, 10);
         floors = new Array<Floor>();
         floorsBrick = new Array<Floor>();
-        
         demoLevel();
-        
     }
 
     public void demoLevel() {
@@ -40,7 +41,7 @@ public class World {
 
     public void update(float deltaTime) {
     }
-
+    
     public Player getPlayer() {
         return player;
     }
@@ -52,6 +53,12 @@ public class World {
     public Array<Floor> getFloorBrick(){
         return floorsBrick;
     }
+
+    public KingBoss getKing() {
+        return king;
+    }
     
-    
+    public GoldBlock getGold() {
+        return gold;
+    }
 }
