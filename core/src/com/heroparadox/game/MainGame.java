@@ -84,7 +84,7 @@ public class MainGame implements Screen {
                 player.setVelX(5f);
                 player.setState(Player.State.RUNNING);
             }
-            if (Gdx.input.isKeyPressed(Keys.SPACE) && player.hasPegasusBoots() && player.getState() != Player.State.ATTACKING) {
+            if (Gdx.input.isKeyPressed(Keys.SPACE) && !player.hasPegasusBoots() && player.getState() != Player.State.ATTACKING) {
                 player.jump();
             }
             if (Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT) && player.getState() != Player.State.ATTACKING && !holdingLeft) {
@@ -96,6 +96,7 @@ public class MainGame implements Screen {
             if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT)) {
                 player.setState(Player.State.STANDING);
             }
+        player.update(deltaTime);
         }
         if (player.getX() <= 0) {
             player.addToPosition(Math.abs(player.getX()), 0);
@@ -216,7 +217,6 @@ public class MainGame implements Screen {
 //            if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.SHIFT_LEFT) && !Gdx.input.isKeyPressed(Keys.SPACE) && !Gdx.input.isButtonPressed(Buttons.LEFT) && Gdx.input.isButtonPressed(Buttons.RIGHT)) {
 //                player.setState(Player.State.BLOCKING);
 //            }
-        player.update(deltaTime);
         renderer.render(deltaTime);
         }
         
