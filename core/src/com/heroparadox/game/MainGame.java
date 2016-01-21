@@ -210,9 +210,10 @@ public class MainGame implements Screen {
             
             //throws gold block
             if (king.getState() == KingBoss.State.THROWING) {
-               
             }
         }
+        king.update(deltaTime);
+        
         renderer.render(deltaTime);
     }
 
