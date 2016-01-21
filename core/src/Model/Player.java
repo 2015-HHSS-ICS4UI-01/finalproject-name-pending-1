@@ -14,7 +14,7 @@ public class Player extends Entity {
 
     public enum State {
 
-        BLOCKING, ATTACKING, RUNNING, STANDING, FROZEN, JUMPING, FALLEN
+        BLOCKING, ATTACKING, RUNNING, STANDING, FROZEN, JUMPING
     }
     private boolean isFacingLeft, hasPegasusBoots, hasSword;
     private final float MAX_VELOCITY = 4f, TERMINAL_VELOCITY = 8f, DAMP = 0.7f;
