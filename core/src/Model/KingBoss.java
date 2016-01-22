@@ -46,4 +46,15 @@ public class KingBoss extends Entity {
     public int getHealth(){
         return health;
     }
+    
+    public void loseHealth(){
+        health--;
+    }
+    
+    public boolean isAlive(){
+        if (health==0)
+            return false;
+        else
+            return true;
+    }
 }

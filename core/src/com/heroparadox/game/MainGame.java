@@ -32,17 +32,16 @@ public class MainGame implements Screen {
     private TurtleBoss turtle;
     private WorldRenderer renderer;
     private Music music;
-    private Sword sowrd;
-    private TurtleBoss turtle;
+    private Sword sword;
     private boolean kingAlive;
-    private boolean 
+    private boolean kingFight;
     GdxGame game;
 
     public MainGame(GdxGame game) {
         this.game = game;
         world = new World();
         player = world.getPlayer();
-        sowrd = world.getSword();
+        sword = world.getSword();
         turtle = world.getTurtle();
         king = world.getKing();
         gold = world.getGold();
@@ -55,6 +54,7 @@ public class MainGame implements Screen {
         holdingRight = false;
         turtleAlive = true;
         turtleFight = false;
+        kingFight = false;
     }
 
     @Override
@@ -228,9 +228,9 @@ public class MainGame implements Screen {
             }
         }
 
-        if(kingFight&&sowrd.isColliding(king)&&Gdx.input.isButtonPressed(Buttons.RIGHT)){
+        if(kingFight&&sword.isColliding(king)&&Gdx.input.isButtonPressed(Buttons.RIGHT)){
             king.loseHealth();
-        }else if(turtleFight&&sowrd.isColliding(turtle)&&Gdx.input.isButtonPressed(Buttons.RIGHT)){
+        }else if(turtleFight&&sword.isColliding(turtle)&&Gdx.input.isButtonPressed(Buttons.RIGHT)){
             turtle.loseHealth();
         }
         

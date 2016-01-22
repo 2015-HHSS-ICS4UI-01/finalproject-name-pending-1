@@ -22,6 +22,10 @@ public class Player extends Entity {
     private State state;
     private Vector2 acceleration, velocity;
     private int health;
+    private int x;
+    private int y;
+    private int width;
+    private int height;
 
     public Player(float x, float y, float width, float height) {
         super(x, y, width, height);
@@ -32,6 +36,10 @@ public class Player extends Entity {
         state = State.STANDING;
         acceleration = new Vector2(0, 0);
         velocity = new Vector2(0, 0);
+        x=this.x;
+        y=this.y;
+        width=this.width;
+        height=this.height;
     }
 
     public void update(float delta) {
@@ -110,4 +118,6 @@ public class Player extends Entity {
     public int getHealth(){
         return health;
     }
+    
+    
 }

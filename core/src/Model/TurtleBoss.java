@@ -23,12 +23,13 @@ public class TurtleBoss extends Entity {
     private Vector2 velocity;
     private int health;
     
-    public TurtleBoss(float x, float y, float width, float height) {
+    public TurtleBoss(float x, float y, float width, float height, int health) {
         super(x, y, width, height);
         isFacingLeft = true;
         stateTime = 0;
         state = State.STANDING;
         velocity = new Vector2(0, 0);
+        health = this.health;
     }
 
     public boolean isFacingLeft() {
@@ -46,7 +47,16 @@ public class TurtleBoss extends Entity {
     public float getVelX() {
         return velocity.x;
     }
-    public boolean turtleAlive(){
+    
+    public int getHealth(){
+        return health;
+    }
+    
+    public void loseHealth(){
+        health--;
+    }
+    
+    public boolean isAlive(){
         if (health==0)
             return false;
         else
