@@ -47,9 +47,10 @@ public class AssetManager {
     public static TextureRegion gold;
     
     public static void load(){
-        atlas = new TextureAtlas("pack.pack");
+        atlas = new TextureAtlas("Final.pack");
         //player
         player = atlas.findRegion("mitch");
+        playerJump = atlas.findRegion("mitchJump");
         
         //floors
         dirtFloor = atlas.findRegion("grassFloor");
@@ -70,7 +71,7 @@ public class AssetManager {
         turtleBoss = atlas.findRegion("turtle boss");
         
         //items
-        sword = atlas.findRegion("Mastah sword");
+        sword = atlas.findRegion("Master sword");
         shield = atlas.findRegion("Turtle shield");
         gold = atlas.findRegion("gold bar");
         

@@ -17,10 +17,11 @@ public class Player extends Entity {
         BLOCKING, ATTACKING, RUNNING, STANDING, FROZEN, JUMPING
     }
     private boolean isFacingLeft, hasPegasusBoots, hasSword;
-    private final float MAX_VELOCITY = 4f, TERMINAL_VELOCITY = 8f, DAMP = 0.7f;
+    public final float MAX_VELOCITY = 10f, TERMINAL_VELOCITY = 5f, DAMP = 0.7f;
     private float stateTime;
     private State state;
     private Vector2 acceleration, velocity;
+    private int health;
 
     public Player(float x, float y, float width, float height) {
         super(x, y, width, height);
@@ -44,7 +45,6 @@ public class Player extends Entity {
         }
         addToPosition(velocity.x, velocity.y);
 
-        isFacingLeft = false;
         if (velocity.x > 0) {
             isFacingLeft = false;
         } else if (velocity.x < 0) {
@@ -105,5 +105,9 @@ public class Player extends Entity {
 
     public void setFacingL(boolean facingLeft) {
         isFacingLeft = facingLeft;
+    }
+    
+    public int getHealth(){
+        return health;
     }
 }

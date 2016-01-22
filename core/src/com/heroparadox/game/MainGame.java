@@ -24,11 +24,12 @@ import com.badlogic.gdx.audio.Music;
  */
 public class MainGame implements Screen {
 
-    private boolean holdingLeft, holdingRight;
+    private boolean holdingLeft, holdingRight, turtleAlive, turtleFight;
     private World world;
     private Player player;
     private KingBoss king;
     private GoldBlock gold;
+    private TurtleBoss turtle;
     private WorldRenderer renderer;
     private Music music;
     private Sword sowrd;
@@ -45,10 +46,15 @@ public class MainGame implements Screen {
         turtle = world.getTurtle();
         king = world.getKing();
         gold = world.getGold();
+        turtle = world.getTurtle();
         renderer = new WorldRenderer(world);
         music = Gdx.audio.newMusic(Gdx.files.internal("music/1.mp3"));
         music.setVolume(0.5f);                 // sets the volume to half the maximum volume
         music.setLooping(true);                // will repeat playback until music.stop() is called
+        holdingLeft = false;
+        holdingRight = false;
+        turtleAlive = true;
+        turtleFight = false;
     }
 
     @Override
@@ -101,19 +107,19 @@ public class MainGame implements Screen {
         if (holdingLeft && !Gdx.input.isButtonPressed(Buttons.LEFT)) {
             holdingLeft = false;
         }
-
+        System.out.println(player.getX());
         //allows player to perform actions if they aren't frozen
         if (player.getState() != Player.State.FROZEN) {
 
             //allows player to run if they aren't running other way, attacking, and blocking
             if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && player.getState() != Player.State.ATTACKING && player.getState() != Player.State.BLOCKING) {
-                player.setVelX(-4f);
+                player.setVelX(-player.MAX_VELOCITY);
                 player.setState(Player.State.RUNNING);
             }
 
             //allows player to run left if they aren't running other way, attacking, and blocking
             if (Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.A) && player.getState() != Player.State.ATTACKING && player.getState() != Player.State.BLOCKING) {
-                player.setVelX(4f);
+                player.setVelX(player.MAX_VELOCITY);
                 player.setState(Player.State.RUNNING);
             }
 
@@ -140,7 +146,7 @@ public class MainGame implements Screen {
         }
 
         //corrects players x so they don't fall off edge of map
-        if (player.getX() <= 0) {
+        if (player.getX() < 0) {
             player.addToPosition(Math.abs(player.getX()), 0);
         }
 
@@ -196,6 +202,31 @@ public class MainGame implements Screen {
                 }
             }
         }
+        
+        //TURTLE CODE
+        //TURTLE CODE
+        //TURTLE CODE
+        //TURTLE CODE
+        //TURTLE CODE
+        //TURTLE CODE
+        //TURTLE CODE
+        //TURTLE CODE
+        //TURTLE CODE
+        //TURTLE CODE
+        
+        //initialize the turtle boss fight
+        if (player.getX() >= renderer.WIDTH * 2.5 && turtleAlive) {
+            turtleFight = true;
+        }
+        
+        //make the players invisible walls
+        if (turtleFight) {
+            if (player.getX() < renderer.WIDTH * 2) {
+                player.addToPosition(renderer.WIDTH * 2 - player.getX(), 0);
+            } else if (player.getX() > renderer.WIDTH * 3) {
+                player.addToPosition(renderer.WIDTH * 3 - player.getX(), 0);
+            }
+        }
 
         if(kingFight&&sowrd.isColliding(king)&&Gdx.input.isButtonPressed(Buttons.RIGHT)){
             king.loseHealth();
@@ -227,9 +258,11 @@ public class MainGame implements Screen {
             
             //throws gold block
             if (king.getState() == KingBoss.State.THROWING) {
-               
+                
             }
         }
+        king.update(deltaTime);
+        
         renderer.render(deltaTime);
     }
 
