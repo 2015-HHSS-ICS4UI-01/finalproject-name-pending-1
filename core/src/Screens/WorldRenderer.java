@@ -7,6 +7,7 @@ package Screens;
 import Model.Floor;
 import Model.Player;
 import Model.World;
+import static Screens.AssetManager.playerWalk;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -83,9 +84,24 @@ public final class WorldRenderer {
         for (Floor f : world.getFloorBrick()){
             batch.draw(AssetManager.dirtFloor, f.getX(),f.getY(),100,100);
         }
-//        if (player.getState() == Player.State.STANDING) {
+        if (player.getState() == Player.State.STANDING) {
             batch.draw(AssetManager.player, player.getX(), player.getY()-5); //draw the singe sprite right now
-//        }
+        }else if (player.getState() == Player.State.RUNNING) {
+            if(!player.isFacingLeft()){
+            batch.draw(AssetManager.playerWalk.getKeyFrame(player.getStateTime(), true), player.getX(), player.getY()-5); //draw the singe sprite right now
+            }else{
+                batch.draw(AssetManager.playerWalkL.getKeyFrame(player.getStateTime(), true), player.getX(), player.getY()-5); //draw the singe sprite right now
+            }
+        }else{
+            batch.draw(AssetManager.player, player.getX(), player.getY()-5); //draw the singe sprite right now
+        }
+        
+        if(player.getState() == Player.State.ATTACKING){
+            batch.draw(AssetManager.sword,player.getX() + 100, player.getY() + 60);
+        }
+        if(player.getState() == Player.State.BLOCKING){
+            batch.draw(AssetManager.shield, player.getX() + 100, player.getY() + 20);
+        }
         batch.end();
         //System.out.println("I AM DRAWING");
     }

@@ -110,7 +110,7 @@ public class MainGame implements Screen {
             }
 
             //allows player to jump if they aren't attacking, blocking, and have pegasus boots
-            if (Gdx.input.isKeyPressed(Keys.SPACE) && player.hasPegasusBoots() && player.getState() != Player.State.ATTACKING && player.getState() != Player.State.BLOCKING) {
+            if (Gdx.input.isKeyPressed(Keys.SPACE) && !player.hasPegasusBoots() && player.getState() != Player.State.ATTACKING && player.getState() != Player.State.BLOCKING) {
                 player.jump();
             }
 

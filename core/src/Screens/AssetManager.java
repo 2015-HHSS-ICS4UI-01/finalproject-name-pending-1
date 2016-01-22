@@ -6,7 +6,9 @@ package Screens;
 
 import com.badlogic.gdx.graphics.g2d.Animation;
 import com.badlogic.gdx.graphics.g2d.TextureAtlas;
+import com.badlogic.gdx.graphics.g2d.TextureAtlas.AtlasRegion;
 import com.badlogic.gdx.graphics.g2d.TextureRegion;
+import com.badlogic.gdx.utils.Array;
 
 /**
  *
@@ -47,7 +49,7 @@ public class AssetManager {
     public static TextureRegion gold;
     
     public static void load(){
-        atlas = new TextureAtlas("Final.pack");
+        atlas = new TextureAtlas("finalisimo.pack");
         //player
         player = atlas.findRegion("mitch");
         playerJump = atlas.findRegion("mitchJump");
@@ -68,21 +70,32 @@ public class AssetManager {
         
         //bosses
         kingBoss = atlas.findRegion("king");
-        turtleBoss = atlas.findRegion("turtle boss");
+        turtleBoss = atlas.findRegion("turtle");
         
         //items
         sword = atlas.findRegion("Master sword");
-        shield = atlas.findRegion("Turtle shield");
+        shield = atlas.findRegion("shield");
         gold = atlas.findRegion("gold bar");
         
-//        Array<AtlasRegion> run = atlas.findRegion(walk);
+//        Array<AtlasRegion> run = atlas.findRegion(playerWalk);
 //        PlayerWalk = new Animation(0.1f, walk);
 //        walk = atlas.findRegions("walk");
 //        PlayerWalkL = new Animation(0.1f, walk);
 //        for(TextureRegion r: PlayerWalkL.getKeyFrames()){
 //            r.flip(true, false);
 //        }
+//        
+        Array<TextureRegion> run = new Array<TextureRegion>();
+        run.add(player);
+        run.add(playerJump);
+        playerWalk = new Animation(0.25f, run);
         
-        
+        Array<TextureRegion> runL = new Array<TextureRegion>();
+        runL.add((new TextureRegion(player)));
+        runL.add((new TextureRegion(playerJump)));
+        playerWalkL = new Animation(0.25f, runL);
+        for(TextureRegion r: playerWalkL.getKeyFrames()){
+            r.flip(true, false);
+        }
     }
 }

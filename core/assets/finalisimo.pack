@@ -1,109 +1,109 @@
 
-pack.png
+finalisimo.png
 format: RGBA8888
 filter: Nearest,Nearest
 repeat: none
 background
   rotate: false
-  xy: 0, 0
+  xy: 1, 1005
   size: 1280, 1024
   orig: 1280, 1024
   offset: 0, 0
   index: -1
 pauseScreen
   rotate: false
-  xy: 1280, 0
+  xy: 1283, 1005
   size: 1280, 1024
   orig: 1280, 1024
   offset: 0, 0
   index: -1
 startScreen
   rotate: false
-  xy: 2560, 0
+  xy: 2565, 1005
   size: 1280, 1024
   orig: 1280, 1024
   offset: 0, 0
   index: -1
 Coliseum
   rotate: false
-  xy: 3840, 224
+  xy: 1, 203
   size: 1056, 800
   orig: 1056, 800
   offset: 0, 0
   index: -1
 Coliseum Pillars
   rotate: false
-  xy: 4896, 224
+  xy: 1059, 203
   size: 434, 800
   orig: 434, 800
   offset: 0, 0
   index: -1
-Mastah sword
-  rotate: false
-  xy: 5330, 262
-  size: 294, 762
-  orig: 294, 762
-  offset: 0, 0
-  index: -1
 old man house
   rotate: false
-  xy: 5624, 694
+  xy: 1495, 673
   size: 430, 330
   orig: 430, 330
   offset: 0, 0
   index: -1
 turtle
   rotate: false
-  xy: 3840, 24
+  xy: 1, 1
   size: 400, 200
   orig: 400, 200
   offset: 0, 0
   index: -1
 mitchJump
   rotate: false
-  xy: 5624, 494
-  size: 125, 200
-  orig: 125, 200
+  xy: 3847, 1839
+  size: 125, 190
+  orig: 125, 190
   offset: 0, 0
   index: -1
 king
   rotate: false
-  xy: 6054, 824
+  xy: 1495, 471
   size: 100, 200
   orig: 100, 200
   offset: 0, 0
   index: -1
 mitch
   rotate: false
-  xy: 4240, 24
+  xy: 1927, 803
   size: 100, 200
   orig: 100, 200
   offset: 0, 0
   index: -1
+Master sword
+  rotate: false
+  xy: 403, 131
+  size: 181, 70
+  orig: 181, 70
+  offset: 0, 0
+  index: -1
 shield
   rotate: false
-  xy: 5624, 334
+  xy: 3847, 1677
   size: 60, 160
   orig: 60, 160
   offset: 0, 0
   index: -1
 brickFloor
   rotate: false
-  xy: 5749, 594
+  xy: 3974, 1929
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 grassFloor
   rotate: false
-  xy: 6054, 724
+  xy: 1495, 369
   size: 100, 100
   orig: 100, 100
   offset: 0, 0
   index: -1
 gold
   rotate: false
-  xy: 6154, 984
+  xy: 1597, 631
   size: 65, 40
   orig: 65, 40
   offset: 0, 0
