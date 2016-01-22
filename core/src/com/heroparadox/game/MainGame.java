@@ -8,6 +8,7 @@ import Model.Floor;
 import Model.GoldBlock;
 import Model.KingBoss;
 import Model.Player;
+import Model.Sword;
 import Model.TurtleBoss;
 import Model.World;
 import Screens.WorldRenderer;
@@ -31,12 +32,17 @@ public class MainGame implements Screen {
     private TurtleBoss turtle;
     private WorldRenderer renderer;
     private Music music;
+    private Sword sword;
+    private boolean kingAlive;
+    private boolean kingFight;
     GdxGame game;
 
     public MainGame(GdxGame game) {
         this.game = game;
         world = new World();
         player = world.getPlayer();
+        sword = world.getSword();
+        turtle = world.getTurtle();
         king = world.getKing();
         gold = world.getGold();
         turtle = world.getTurtle();
@@ -48,6 +54,7 @@ public class MainGame implements Screen {
         holdingRight = false;
         turtleAlive = true;
         turtleFight = false;
+        kingFight = false;
     }
 
     @Override
