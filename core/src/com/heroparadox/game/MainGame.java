@@ -77,7 +77,7 @@ public class MainGame implements Screen {
         //PLAYER CODE
 
         //limits player to attack or block time of 0.5 seconds
-        if (player.getStateTime() >= 0.5f && (player.getState() == Player.State.ATTACKING || player.getState() == Player.State.BLOCKING)) {
+        if (player.getStateTime() >= 1 && (player.getState() == Player.State.ATTACKING || player.getState() == Player.State.BLOCKING)) {
             player.setState(Player.State.STANDING);
 
             //player may attack only once per click
@@ -100,7 +100,6 @@ public class MainGame implements Screen {
         if (holdingLeft && !Gdx.input.isButtonPressed(Buttons.LEFT)) {
             holdingLeft = false;
         }
-        System.out.println(player.getX());
         //allows player to perform actions if they aren't frozen
         if (player.getState() != Player.State.FROZEN) {
 
@@ -206,7 +205,6 @@ public class MainGame implements Screen {
         //TURTLE CODE
         //TURTLE CODE
         //TURTLE CODE
-        
         //initialize the turtle boss fight
         if (player.getX() >= renderer.WIDTH * 2.5 && turtleAlive) {
             turtleFight = true;
@@ -220,11 +218,28 @@ public class MainGame implements Screen {
                 player.addToPosition(renderer.WIDTH * 3 - player.getX(), 0);
             }
         }
-
-        if (turtle.getHealth() <= 0) {
-            turtleFight = false;
-            turtleAlive = false;
+        
+        //turtle waits for three seconds before attacking
+        if (turtle.getStateTime() >= 3 && turtle.getState() == TurtleBoss.State.STANDING) {
+            turtle.setState(TurtleBoss.State.SPINNING);
         }
+        
+        //moves the turtle
+        if (turtle.getState() == TurtleBoss.State.SPINNING) {
+        }
+        
+        if (turtle.getX() <= renderer.WIDTH * 2 + 140) {
+            turtle.addToPosition(renderer.WIDTH * 2 + 140 - turtle.getX(), 0);
+            turtle.setVelX(-turtle.getVelX());
+        } else if (turtle.getX() + 320 >= renderer.WIDTH * 3) {
+            turtle.addToPosition(renderer.WIDTH * 3 - turtle.getX(), 0);
+            turtle.setVelX(-turtle.getVelX());
+        }
+        
+        if (turtle.getHealth() <= 0) {
+        }
+        
+        turtle.update(deltaTime);
         //KING CODE
         //KING CODE
         //KING CODE

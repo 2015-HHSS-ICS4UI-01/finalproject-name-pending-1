@@ -23,7 +23,7 @@ public class World {
         player = new Player(1280, 100, 100, 200);
         king = new KingBoss(6400, 100, 100, 200);
         gold = new GoldBlock(6400, 100, 20, 10);
-        turtle = new TurtleBoss(3520, 100, 320, 160);
+        turtle = new TurtleBoss(3500, 100, 320, 160);
         floors = new Array<Floor>();
         floorsBrick = new Array<Floor>();
         demoLevel();

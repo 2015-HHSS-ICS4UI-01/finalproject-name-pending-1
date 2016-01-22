@@ -68,7 +68,7 @@ public class AssetManager {
         
         //bosses
         kingBoss = atlas.findRegion("king");
-        turtleBoss = atlas.findRegion("turtle boss");
+        turtleBoss = atlas.findRegion("turtle");
         
         //items
         sword = atlas.findRegion("Master sword");

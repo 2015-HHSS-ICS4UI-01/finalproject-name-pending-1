@@ -17,7 +17,7 @@ public class TurtleBoss extends Entity {
         SPINNING, DIZZY, STANDING;
     }
     private boolean isFacingLeft;
-    private final float MAX_VELOCITY = 2f, DAMP = 0.9f;
+    public final float MAX_VELOCITY = 8f, DAMP = 0.9f;
     private float stateTime;
     private State state;
     private Vector2 velocity;
@@ -29,6 +29,11 @@ public class TurtleBoss extends Entity {
         stateTime = 0;
         state = State.STANDING;
         velocity = new Vector2(0, 0);
+    }
+    
+    public void update(float delta) {
+        addToPosition(velocity.x, 0);
+        stateTime += delta;
     }
 
     public boolean isFacingLeft() {
@@ -49,5 +54,16 @@ public class TurtleBoss extends Entity {
     
     public int getHealth(){
         return health;
+    }
+    
+    public void setState(State s) {
+        if (state != s) {
+            stateTime = 0;
+            state = s;
+        }
+    }
+    
+    public void setVelX(float x) {
+        velocity.x = x;
     }
 }
