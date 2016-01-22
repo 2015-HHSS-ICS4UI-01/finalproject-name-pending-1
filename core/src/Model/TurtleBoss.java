@@ -29,6 +29,7 @@ public class TurtleBoss extends Entity {
         stateTime = 0;
         state = State.STANDING;
         velocity = new Vector2(0, 0);
+        health = 3;
     }
 
     public boolean isFacingLeft() {
@@ -49,5 +50,9 @@ public class TurtleBoss extends Entity {
     
     public int getHealth(){
         return health;
+    }
+    
+    public void loseHealth(){
+        health--;
     }
 }

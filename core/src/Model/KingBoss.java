@@ -22,6 +22,7 @@ public class KingBoss extends Entity {
         super(x, y, width, height);
         stateTime = 0;
         state = State.STANDING;
+        health = 3;
     }
 
     public float getStateTime() {
@@ -41,5 +42,8 @@ public class KingBoss extends Entity {
     
     public int getHealth(){
         return health;
+    }
+    public void loseHealth(){
+        health--;
     }
 }
