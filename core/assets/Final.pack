@@ -1,0 +1,110 @@
+
+Final.png
+format: RGBA8888
+filter: Nearest,Nearest
+repeat: none
+background
+  rotate: false
+  xy: 2, 1006
+  size: 1280, 1024
+  orig: 1280, 1024
+  offset: 0, 0
+  index: -1
+pauseScreen
+  rotate: false
+  xy: 1284, 1006
+  size: 1280, 1024
+  orig: 1280, 1024
+  offset: 0, 0
+  index: -1
+startScreen
+  rotate: false
+  xy: 2566, 1006
+  size: 1280, 1024
+  orig: 1280, 1024
+  offset: 0, 0
+  index: -1
+Coliseum
+  rotate: false
+  xy: 2, 204
+  size: 1056, 800
+  orig: 1056, 800
+  offset: 0, 0
+  index: -1
+Coliseum Pillars
+  rotate: false
+  xy: 1060, 204
+  size: 434, 800
+  orig: 434, 800
+  offset: 0, 0
+  index: -1
+old man house
+  rotate: false
+  xy: 1496, 674
+  size: 430, 330
+  orig: 430, 330
+  offset: 0, 0
+  index: -1
+turtle
+  rotate: false
+  xy: 2, 2
+  size: 400, 200
+  orig: 400, 200
+  offset: 0, 0
+  index: -1
+mitchJump
+  rotate: false
+  xy: 3848, 1840
+  size: 125, 190
+  orig: 125, 190
+  offset: 0, 0
+  index: -1
+king
+  rotate: false
+  xy: 1496, 472
+  size: 100, 200
+  orig: 100, 200
+  offset: 0, 0
+  index: -1
+mitch
+  rotate: false
+  xy: 1928, 804
+  size: 100, 200
+  orig: 100, 200
+  offset: 0, 0
+  index: -1
+Master sword
+  rotate: false
+  xy: 404, 21
+  size: 70, 181
+  orig: 70, 181
+  offset: 0, 0
+  index: -1
+shield
+  rotate: false
+  xy: 3848, 1678
+  size: 60, 160
+  orig: 60, 160
+  offset: 0, 0
+  index: -1
+brickFloor
+  rotate: false
+  xy: 3975, 1930
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+grassFloor
+  rotate: false
+  xy: 1496, 370
+  size: 100, 100
+  orig: 100, 100
+  offset: 0, 0
+  index: -1
+gold
+  rotate: false
+  xy: 1598, 632
+  size: 65, 40
+  orig: 65, 40
+  offset: 0, 0
+  index: -1
