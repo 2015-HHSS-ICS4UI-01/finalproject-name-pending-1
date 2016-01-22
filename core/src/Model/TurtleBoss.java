@@ -21,7 +21,8 @@ public class TurtleBoss extends Entity {
     private float stateTime;
     private State state;
     private Vector2 velocity;
-
+    private int health;
+    
     public TurtleBoss(float x, float y, float width, float height) {
         super(x, y, width, height);
         isFacingLeft = true;
@@ -44,5 +45,9 @@ public class TurtleBoss extends Entity {
 
     public float getVelX() {
         return velocity.x;
+    }
+    
+    public int getHealth(){
+        return health;
     }
 }

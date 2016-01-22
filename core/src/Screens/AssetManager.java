@@ -50,6 +50,7 @@ public class AssetManager {
         atlas = new TextureAtlas("Final.pack");
         //player
         player = atlas.findRegion("mitch");
+        playerJump = atlas.findRegion("mitchJump");
         
         //floors
         dirtFloor = atlas.findRegion("grassFloor");
