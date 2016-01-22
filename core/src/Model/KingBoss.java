@@ -23,6 +23,10 @@ public class KingBoss extends Entity {
         state = State.STANDING;
     }
 
+    public void update(float delta) {
+        stateTime += delta;
+    }
+    
     public float getStateTime() {
         return stateTime;
     }
