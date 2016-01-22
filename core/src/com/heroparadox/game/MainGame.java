@@ -8,6 +8,8 @@ import Model.Floor;
 import Model.GoldBlock;
 import Model.KingBoss;
 import Model.Player;
+import Model.Sword;
+import Model.TurtleBoss;
 import Model.World;
 import Screens.WorldRenderer;
 import com.badlogic.gdx.Gdx;
@@ -29,12 +31,18 @@ public class MainGame implements Screen {
     private GoldBlock gold;
     private WorldRenderer renderer;
     private Music music;
+    private Sword sowrd;
+    private TurtleBoss turtle;
+    private boolean kingAlive;
+    private boolean 
     GdxGame game;
 
     public MainGame(GdxGame game) {
         this.game = game;
         world = new World();
         player = world.getPlayer();
+        sowrd = world.getSword();
+        turtle = world.getTurtle();
         king = world.getKing();
         gold = world.getGold();
         renderer = new WorldRenderer(world);
@@ -189,6 +197,14 @@ public class MainGame implements Screen {
             }
         }
 
+        if(kingFight&&sowrd.isColliding(king)&&Gdx.input.isButtonPressed(Buttons.RIGHT)){
+            king.loseHealth();
+        }else if(turtleFight&&sowrd.isColliding(turtle)&&Gdx.input.isButtonPressed(Buttons.RIGHT)){
+            turtle.loseHealth();
+        }
+        
+
+        
         //KING CODE
         //KING CODE
         //KING CODE

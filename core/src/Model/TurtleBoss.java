@@ -45,4 +45,10 @@ public class TurtleBoss extends Entity {
     public float getVelX() {
         return velocity.x;
     }
+    public boolean turtleAlive(){
+        if (health==0)
+            return false;
+        else
+            return true;
+    }
 }
