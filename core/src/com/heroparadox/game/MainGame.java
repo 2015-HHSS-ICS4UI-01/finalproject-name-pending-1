@@ -132,6 +132,7 @@ public class MainGame implements Screen {
             if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT) && player.getState() != Player.State.JUMPING) {
                 player.setState(Player.State.STANDING);
             }
+        player.update(deltaTime);
         }
 
         //corrects players x so they don't fall off edge of map

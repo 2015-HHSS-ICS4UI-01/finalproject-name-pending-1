@@ -24,8 +24,8 @@ public class PausedGameScreen implements Screen {
 GdxGame game; // Note it's "MyGame" not "Game"
  
         // my games virtual width and height
-        public final int V_WIDTH = 1024;
-        public final int V_HEIGHT = 1280;
+        public final int V_WIDTH = 1280;
+        public final int V_HEIGHT = 1024;
 
         private Viewport viewport;
         private OrthographicCamera camera;
@@ -43,6 +43,8 @@ GdxGame game; // Note it's "MyGame" not "Game"
             music.setVolume(0.5f);                 // sets the volume to half the maximum volume
             music.setLooping(true);                // will repeat playback until music.stop() is called
             AssetManager.load();
+            camera.position.set(V_WIDTH/2, V_HEIGHT/2, 0);
+            camera.update();
         }
         
         @Override
@@ -58,6 +60,7 @@ GdxGame game; // Note it's "MyGame" not "Game"
             else if(Gdx.input.isKeyPressed(Keys.ENTER))
                 game.setScreen(game.mainMenuScreen);
                 
+            batch.setProjectionMatrix(camera.combined);
             batch.begin();
         
             batch.draw(AssetManager.pauseScreen, 0, 0);

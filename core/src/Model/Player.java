@@ -21,6 +21,7 @@ public class Player extends Entity {
     private float stateTime;
     private State state;
     private Vector2 acceleration, velocity;
+    private int health;
 
     public Player(float x, float y, float width, float height) {
         super(x, y, width, height);
@@ -104,5 +105,9 @@ public class Player extends Entity {
 
     public void setFacingL(boolean facingLeft) {
         isFacingLeft = facingLeft;
+    }
+    
+    public int getHealth(){
+        return health;
     }
 }

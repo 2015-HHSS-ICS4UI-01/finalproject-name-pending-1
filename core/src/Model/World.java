@@ -31,11 +31,11 @@ public class World {
 
     public void demoLevel() {
 
-        for (int i = 0; i < 79; i++) {
+        for (int i = 0; i < 101; i++) {
             Floor b = new Floor(i * 100, 0, 100, 100);
             floors.add(b);
         }
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < 5; i++) {
             Floor b = new Floor(-100,i*100,100,100);
             floorsBrick.add(b);
         }

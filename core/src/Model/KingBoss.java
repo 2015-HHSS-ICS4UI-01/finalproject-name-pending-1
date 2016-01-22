@@ -16,6 +16,7 @@ public class KingBoss extends Entity {
     }
     private float stateTime;
     private State state;
+    private int health;
 
     public KingBoss(float x, float y, float width, float height) {
         super(x, y, width, height);
@@ -40,5 +41,9 @@ public class KingBoss extends Entity {
             stateTime = 0;
             state = s;
         }
+    }
+    
+    public int getHealth(){
+        return health;
     }
 }
