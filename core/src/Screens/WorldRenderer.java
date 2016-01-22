@@ -6,6 +6,7 @@ package Screens;
 
 import Model.Floor;
 import Model.Player;
+import Model.TurtleBoss;
 import Model.World;
 import static Screens.AssetManager.playerWalk;
 import com.badlogic.gdx.Gdx;
@@ -76,7 +77,9 @@ public final class WorldRenderer {
         batch.setProjectionMatrix(camera.combined);
 
         batch.begin();
-
+        
+        TurtleBoss turtle = world.getTurtle();
+        batch.draw(AssetManager.turtleBoss, turtle.getX(), turtle.getY(), 320, 160);
         
         for (Floor f : world.getFloor()) {
             batch.draw(AssetManager.dirtFloor, f.getX(), f.getY(), 101, 100);

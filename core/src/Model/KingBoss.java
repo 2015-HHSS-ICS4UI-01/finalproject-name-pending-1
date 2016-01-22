@@ -25,6 +25,10 @@ public class KingBoss extends Entity {
         health = 3;
     }
 
+    public void update(float delta) {
+        stateTime += delta;
+    }
+    
     public float getStateTime() {
         return stateTime;
     }
@@ -43,7 +47,15 @@ public class KingBoss extends Entity {
     public int getHealth(){
         return health;
     }
+    
     public void loseHealth(){
         health--;
+    }
+    
+    public boolean isAlive(){
+        if (health==0)
+            return false;
+        else
+            return true;
     }
 }

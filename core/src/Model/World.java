@@ -16,12 +16,16 @@ public class World {
     private Player player;
     private KingBoss king;
     private GoldBlock gold;
+    private TurtleBoss turtle;
+    private Sword sword;
     private final Array<Floor> floorsBrick;
 
     public World() {
         player = new Player(1280, 100, 100, 200);
         king = new KingBoss(6400, 100, 100, 200);
         gold = new GoldBlock(6400, 100, 20, 10);
+        turtle = new TurtleBoss(3520, 100, 320, 160,3);
+        sword = new Sword(player.getX()+player.getWidth(),player.getY()/2,50,40);
         floors = new Array<Floor>();
         floorsBrick = new Array<Floor>();
         demoLevel();
@@ -60,5 +64,13 @@ public class World {
     
     public GoldBlock getGold() {
         return gold;
+    }
+    
+    public TurtleBoss getTurtle() {
+        return turtle;
+    }
+    
+    public Sword getSword(){
+        return sword;
     }
 }
