@@ -8,6 +8,7 @@ import Model.Floor;
 import Model.GoldBlock;
 import Model.KingBoss;
 import Model.Player;
+import Model.TurtleBoss;
 import Model.World;
 import Screens.WorldRenderer;
 import com.badlogic.gdx.Gdx;
@@ -27,6 +28,7 @@ public class MainGame implements Screen {
     private Player player;
     private KingBoss king;
     private GoldBlock gold;
+    private TurtleBoss turtle;
     private WorldRenderer renderer;
     private Music music;
     GdxGame game;
@@ -37,6 +39,7 @@ public class MainGame implements Screen {
         player = world.getPlayer();
         king = world.getKing();
         gold = world.getGold();
+        turtle = world.getTurtle();
         renderer = new WorldRenderer(world);
         music = Gdx.audio.newMusic(Gdx.files.internal("music/1.mp3"));
         music.setVolume(0.5f);                 // sets the volume to half the maximum volume
@@ -204,10 +207,12 @@ public class MainGame implements Screen {
         //TURTLE CODE
         //TURTLE CODE
         
+        //initialize the turtle boss fight
         if (player.getX() >= renderer.WIDTH * 2.5 && turtleAlive) {
             turtleFight = true;
         }
         
+        //make the players invisible walls
         if (turtleFight) {
             if (player.getX() < renderer.WIDTH * 2) {
                 player.addToPosition(renderer.WIDTH * 2 - player.getX(), 0);
@@ -216,6 +221,10 @@ public class MainGame implements Screen {
             }
         }
 
+        if (turtle.getHealth() <= 0) {
+            turtleFight = false;
+            turtleAlive = false;
+        }
         //KING CODE
         //KING CODE
         //KING CODE
