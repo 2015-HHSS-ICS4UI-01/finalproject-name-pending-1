@@ -118,12 +118,14 @@ public class MainGame implements Screen {
             if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && player.getState() != Player.State.ATTACKING && player.getState() != Player.State.BLOCKING) {
                 player.setVelX(-player.MAX_VELOCITY);
                 player.setState(Player.State.RUNNING);
+                sword.setX(player.getX()-sword.width);
             }
 
             //allows player to run left if they aren't running other way, attacking, and blocking
             if (Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.A) && player.getState() != Player.State.ATTACKING && player.getState() != Player.State.BLOCKING) {
                 player.setVelX(player.MAX_VELOCITY);
                 player.setState(Player.State.RUNNING);
+                sword.setX(player.getX()+sword.width);
             }
 
             //allows player to jump if they aren't attacking, blocking, and have pegasus boots
@@ -257,8 +259,9 @@ public class MainGame implements Screen {
             
         
             //if player is hitting block
-            if (turtle.isColliding(sword)) {
+            if (sword.isColliding(turtle)) {
                 turtleHealth = turtleHealth-1;
+                System.out.println("*");
             }
             
             if (turtleHealth == 0) {
