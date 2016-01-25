@@ -24,7 +24,7 @@ public class World {
         player = new Player(0, 100, 100, 200);
         king = new KingBoss(6400, 100, 100, 200);
         gold = new GoldBlock(6400, 100, 20, 10);
-        turtle = new TurtleBoss(3040, 100, 320, 160,3);
+        turtle = new TurtleBoss(3040, 100, 320, 140,3);
         sword = new Sword(player.getX()+player.getWidth(),player.getY()/2,50,40);
         floors = new Array<Floor>();
         floorsBrick = new Array<Floor>();
@@ -73,4 +73,6 @@ public class World {
     public Sword getSword(){
         return sword;
     }
+    
+    
 }

@@ -5,6 +5,7 @@
 package Screens;
 
 import Model.Floor;
+import Model.KingBoss;
 import Model.Player;
 import Model.TurtleBoss;
 import Model.World;
@@ -15,6 +16,7 @@ import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+import com.heroparadox.game.MainGame;
 
 /**
  *
@@ -30,13 +32,16 @@ public final class WorldRenderer {
     private Viewport viewport;
     private World world;
     private World floor;
+    private TurtleBoss turtle;
+    private KingBoss king;
+    private MainGame mainGame;
 
     public WorldRenderer(World w) {
 
         world = w;
         player = world.getPlayer();
-
-
+        
+        turtle = world.getTurtle();
         camera = new OrthographicCamera();
         viewport = new FitViewport(WIDTH, HEIGHT, camera);
         stationaryCamera = new OrthographicCamera(WIDTH,HEIGHT);
@@ -76,11 +81,8 @@ public final class WorldRenderer {
         
         batch.setProjectionMatrix(camera.combined);
 
-        batch.begin();
-        
-        TurtleBoss turtle = world.getTurtle();
-        batch.draw(AssetManager.turtleBoss, turtle.getX(), turtle.getY(), 320, 160);
-        
+        batch.begin();    
+            batch.draw(AssetManager.turtleBoss, turtle.getX(), turtle.getY(), 320, 160);
         for (Floor f : world.getFloor()) {
             batch.draw(AssetManager.dirtFloor, f.getX(), f.getY(), 101, 100);
         }
