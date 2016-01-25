@@ -207,6 +207,54 @@ public class MainGame implements Screen {
                 }
             }
         }
+        for (Floor b : world.getFloorBrick()) {
+
+            //if player is hitting block
+            if (player.isColliding(b)) {
+                float overX = player.getOverlapX(b);
+                float overY = player.getOverlapY(b);
+
+                //fixing y if not moving
+                if (player.getVelX() == 0f) {
+
+                    //player is above block
+                    if (player.getY() > b.getY()) {
+                        player.addToPosition(0f, overY);
+                    } else {
+                        player.addToPosition(0f, -overY);
+                    }
+
+                    //fix smallest overlap
+                    player.setVelY(0f);
+                } else {
+
+                    //fix smallest overlap
+                    if (overX < overY) {
+
+                        //left of block
+                        if (player.getX() < b.getX()) {
+                            player.addToPosition(-overX, 0f);
+                        } else {
+                            player.addToPosition(overX, 0f);
+                        }
+                    } else {
+
+                        //player is above block
+                        if (player.getY() > b.getY()) {
+                            player.addToPosition(0, overY);
+                            if (player.getState() == Player.State.JUMPING) {
+                                player.setState(Player.State.STANDING);
+                            }
+                        } else {
+                            player.addToPosition(0, -overY);
+
+                        }
+                        player.setVelY(0f);
+                    }
+
+                }
+            }
+        }
         
         //TURTLE CODE
         //TURTLE CODE

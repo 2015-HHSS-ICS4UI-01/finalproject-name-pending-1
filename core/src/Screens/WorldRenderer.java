@@ -82,13 +82,27 @@ public final class WorldRenderer {
         batch.setProjectionMatrix(camera.combined);
 
         batch.begin();    
-            batch.draw(AssetManager.turtleBoss, turtle.getX(), turtle.getY(), 320, 160);
-        for (Floor f : world.getFloor()) {
-            batch.draw(AssetManager.dirtFloor, f.getX(), f.getY(), 101, 100);
-        }
-        for (Floor f : world.getFloorBrick()){
+        
+        
+        
+        batch.draw(AssetManager.turtleBoss, turtle.getX(), turtle.getY(), 320, 160);
+            
+        
+        for (Floor f : world.getFloor()){
             batch.draw(AssetManager.dirtFloor, f.getX(),f.getY(),100,100);
         }
+        for (Floor f : world.getFloorBrick()) {
+            batch.draw(AssetManager.brickFloor, f.getX(), f.getY(), 101, 100);
+        }
+        
+        
+        
+        //collumns
+        batch.draw(AssetManager.collumns, WIDTH*5, 95);
+        batch.draw(AssetManager.collumns, WIDTH*6+1280/2, 95);
+        batch.draw(AssetManager.collumns, WIDTH*7+1280/2, 95);
+        
+        //player
         if (player.getState() == Player.State.STANDING) {
             batch.draw(AssetManager.player, player.getX(), player.getY()-5); //draw the singe sprite right now
         }else if (player.getState() == Player.State.RUNNING) {
@@ -107,6 +121,14 @@ public final class WorldRenderer {
         if(player.getState() == Player.State.BLOCKING){
             batch.draw(AssetManager.shield, player.getX() + 100, player.getY() + 20);
         }
+        
+        //coliseum
+        batch.draw(AssetManager.coliseumEntrance, WIDTH*4, 90);
+        
+        //HOUSE
+        batch.draw(AssetManager.house, -20, 90);
+        
+        
         batch.end();
         //System.out.println("I AM DRAWING");
     }
