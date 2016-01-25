@@ -26,10 +26,16 @@ public class GdxGame extends Game {
         public GdxGame() {             
         }
        
+        /*
+        function to change the current game screen
+        */
        public void changeScreen(Screen s){
            this.setScreen(s);
        }
 
+       /*
+       creates all of the screens used and sets the mainMenuScreen to be the current one.
+       */
     @Override
     public void create() {
         mainMenuScreen = new MainMenuScreen(this);
