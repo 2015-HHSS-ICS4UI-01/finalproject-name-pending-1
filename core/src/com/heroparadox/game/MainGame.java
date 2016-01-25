@@ -30,11 +30,13 @@ public class MainGame implements Screen {
     private KingBoss king;
     private GoldBlock gold;
     private TurtleBoss turtle;
+    private int turtleHealth;
     private WorldRenderer renderer;
     private Music music;
     private Sword sword;
     private boolean kingAlive;
     private boolean kingFight;
+    private int kingHealth;
     GdxGame game;
 
     public MainGame(GdxGame game) {
@@ -55,6 +57,8 @@ public class MainGame implements Screen {
         turtleAlive = true;
         turtleFight = false;
         kingFight = false;
+        turtleHealth = 1;
+        kingHealth = 1;
     }
 
     @Override
@@ -114,12 +118,14 @@ public class MainGame implements Screen {
             if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && player.getState() != Player.State.ATTACKING && player.getState() != Player.State.BLOCKING) {
                 player.setVelX(-player.MAX_VELOCITY);
                 player.setState(Player.State.RUNNING);
+                sword.setX(player.getX()-sword.width);
             }
 
             //allows player to run left if they aren't running other way, attacking, and blocking
             if (Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.A) && player.getState() != Player.State.ATTACKING && player.getState() != Player.State.BLOCKING) {
                 player.setVelX(player.MAX_VELOCITY);
                 player.setState(Player.State.RUNNING);
+                sword.setX(player.getX()+sword.width);
             }
 
             //allows player to jump if they aren't attacking, blocking, and have pegasus boots
@@ -213,17 +219,61 @@ public class MainGame implements Screen {
         //TURTLE CODE
         //TURTLE CODE
         //initialize the turtle boss fight
-        if (player.getX() >= renderer.WIDTH * 2.5 && turtleAlive) {
+        if (player.getX() >= renderer.WIDTH * 2 && turtleAlive) {
             turtleFight = true;
+
         }
         
-        //make the players invisible walls
-        if (turtleFight) {
+        if(turtleFight){
+            //make the players invisible walls
+
             if (player.getX() < renderer.WIDTH * 2) {
                 player.addToPosition(renderer.WIDTH * 2 - player.getX(), 0);
             } else if (player.getX() > renderer.WIDTH * 3) {
                 player.addToPosition(renderer.WIDTH * 3 - player.getX(), 0);
             }
+
+            //turtle waits for three seconds before attacking
+            if (turtle.getStateTime() >= 2 && turtle.getState() == TurtleBoss.State.STANDING) {
+                turtle.setState(TurtleBoss.State.SPINNING);
+            }
+
+            //moves the turtle
+            if (turtle.getState() == TurtleBoss.State.SPINNING&&turtle.getStateTime()==0) {
+                if(turtle.getX()<player.getX())
+                    turtle.setVelX(turtle.MAX_VELOCITY);
+                else
+                    turtle.setVelX(-turtle.MAX_VELOCITY);
+            }
+
+            if (turtle.getX() < renderer.WIDTH * 2) {
+                turtle.addToPosition(renderer.WIDTH * 2- turtle.getX(), 0);
+                turtle.setVelX(0);
+                turtle.setState(TurtleBoss.State.STANDING);
+            } else if (turtle.getX()> renderer.WIDTH * 3) {
+                turtle.addToPosition(renderer.WIDTH * 3 - turtle.getX(), 0);
+                turtle.setVelX(0);
+                turtle.setState(TurtleBoss.State.STANDING);
+            }
+
+            
+        
+            //if player is hitting block
+            if (sword.isColliding(turtle)) {
+                turtleHealth = turtleHealth-1;
+                System.out.println("*");
+            }
+            
+            if (turtleHealth == 0) {
+                turtleFight = false;
+                turtleAlive = false;
+            }
+            
+            if(turtleAlive&&turtle.isColliding(player)){
+                System.exit(0);
+            }
+            
+            turtle.update(deltaTime);
         }
         
 //        //turtle waits for three seconds before attacking
@@ -296,5 +346,13 @@ public class MainGame implements Screen {
 
     @Override
     public void dispose() {
+    }
+    
+    public int turtleHealth(){
+        return turtleHealth;
+    }
+    
+    public int kingHealth(){
+        return kingHealth;
     }
 }
