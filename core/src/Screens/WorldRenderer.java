@@ -98,9 +98,9 @@ public final class WorldRenderer {
         
         
         //collumns
-        batch.draw(AssetManager.collumns, WIDTH*5, 95);
-        batch.draw(AssetManager.collumns, WIDTH*6+1280/2, 95);
-        batch.draw(AssetManager.collumns, WIDTH*7+1280/2, 95);
+        batch.draw(AssetManager.collumns, WIDTH*5, 95,500,924);
+        batch.draw(AssetManager.collumns, WIDTH*6+1280/2, 95,500,924);
+        batch.draw(AssetManager.collumns, WIDTH*7+1280/2, 95,500,924);
         
         //player
         if (player.getState() == Player.State.STANDING) {
@@ -123,7 +123,7 @@ public final class WorldRenderer {
         }
         
         //coliseum
-        batch.draw(AssetManager.coliseumEntrance, WIDTH*4, 90);
+        batch.draw(AssetManager.coliseumEntrance, WIDTH*4, 90,1000,924);
         
         //HOUSE
         batch.draw(AssetManager.house, -20, 90);
