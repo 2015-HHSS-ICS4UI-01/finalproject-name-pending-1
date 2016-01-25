@@ -29,6 +29,7 @@ public class TurtleBoss extends Entity {
         stateTime = 0;
         state = State.STANDING;
         velocity = new Vector2(0, 0);
+        health = 3;
     }
     
     public void update(float delta) {

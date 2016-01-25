@@ -226,22 +226,22 @@ public class MainGame implements Screen {
             }
         }
         
-        //turtle waits for three seconds before attacking
-        if (turtle.getStateTime() >= 3 && turtle.getState() == TurtleBoss.State.STANDING) {
-            turtle.setState(TurtleBoss.State.SPINNING);
-        }
-        
-        //moves the turtle
-        if (turtle.getState() == TurtleBoss.State.SPINNING) {
-        }
-        
-        if (turtle.getX() <= renderer.WIDTH * 2 + 140) {
-            turtle.addToPosition(renderer.WIDTH * 2 + 140 - turtle.getX(), 0);
-            turtle.setVelX(-turtle.getVelX());
-        } else if (turtle.getX() + 320 >= renderer.WIDTH * 3) {
-            turtle.addToPosition(renderer.WIDTH * 3 - turtle.getX(), 0);
-            turtle.setVelX(-turtle.getVelX());
-        }
+//        //turtle waits for three seconds before attacking
+//        if (turtle.getStateTime() >= 3 && turtle.getState() == TurtleBoss.State.STANDING) {
+//            turtle.setState(TurtleBoss.State.SPINNING);
+//        }
+//        
+//        //moves the turtle
+//        if (turtle.getState() == TurtleBoss.State.SPINNING) {
+//        }
+//        
+//        if (turtle.getX() <= renderer.WIDTH * 2 + 140) {
+//            turtle.addToPosition(renderer.WIDTH * 2 + 140 - turtle.getX(), 0);
+//            turtle.setVelX(-turtle.getVelX());
+//        } else if (turtle.getX() + 320 >= renderer.WIDTH * 3) {
+//            turtle.addToPosition(renderer.WIDTH * 3 - turtle.getX(), 0);
+//            turtle.setVelX(-turtle.getVelX());
+//        }
         
         if (turtle.getHealth() <= 0) {
         }
