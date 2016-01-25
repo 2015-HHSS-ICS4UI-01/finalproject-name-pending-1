@@ -141,7 +141,7 @@ public class MainGame implements Screen {
             if (!Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isButtonPressed(Buttons.LEFT) && !Gdx.input.isButtonPressed(Buttons.RIGHT) && player.getState() != Player.State.JUMPING) {
                 player.setState(Player.State.STANDING);
             }
-        player.update(deltaTime);
+            player.update(deltaTime);
         }
 
         //corrects players x so they don't fall off edge of map
@@ -201,7 +201,7 @@ public class MainGame implements Screen {
                 }
             }
         }
-        
+
         //TURTLE CODE
         //TURTLE CODE
         //TURTLE CODE
@@ -216,7 +216,7 @@ public class MainGame implements Screen {
         if (player.getX() >= renderer.WIDTH * 2.5 && turtleAlive) {
             turtleFight = true;
         }
-        
+
         //make the players invisible walls
         if (turtleFight) {
             if (player.getX() < renderer.WIDTH * 2) {
@@ -224,29 +224,29 @@ public class MainGame implements Screen {
             } else if (player.getX() > renderer.WIDTH * 3) {
                 player.addToPosition(renderer.WIDTH * 3 - player.getX(), 0);
             }
+            //turtle waits for three seconds before attacking
+            if (turtle.getStateTime() >= 3 && turtle.getState() == TurtleBoss.State.STANDING) {
+                turtle.setState(TurtleBoss.State.SPINNING);
+            }
+
+            //moves the turtle
+            if (turtle.getState() == TurtleBoss.State.SPINNING) {
+                turtle.setVelX(turtle.MAX_VELOCITY * -1);
+            }
+
+            if (turtle.getX() <= renderer.WIDTH * 2 + 140) {
+                turtle.addToPosition(renderer.WIDTH * 2 + 140 - turtle.getX(), 0);
+            turtle.setVelX(turtle.getVelX() * -1);
+            } else if (turtle.getX() + 320 >= renderer.WIDTH * 3) {
+                turtle.addToPosition(renderer.WIDTH * 3 - turtle.getX(), 0);
+            turtle.setVelX(turtle.getVelX() * -1);
+            }
+
+
+            turtle.update(deltaTime);
         }
-        
-        //turtle waits for three seconds before attacking
-        if (turtle.getStateTime() >= 3 && turtle.getState() == TurtleBoss.State.STANDING) {
-            turtle.setState(TurtleBoss.State.SPINNING);
-        }
-        
-        //moves the turtle
-        if (turtle.getState() == TurtleBoss.State.SPINNING) {
-        }
-        
-        if (turtle.getX() <= renderer.WIDTH * 2 + 140) {
-            turtle.addToPosition(renderer.WIDTH * 2 + 140 - turtle.getX(), 0);
-            turtle.setVelX(-turtle.getVelX());
-        } else if (turtle.getX() + 320 >= renderer.WIDTH * 3) {
-            turtle.addToPosition(renderer.WIDTH * 3 - turtle.getX(), 0);
-            turtle.setVelX(-turtle.getVelX());
-        }
-        
-        if (turtle.getHealth() <= 0) {
-        }
-        
-        turtle.update(deltaTime);
+
+
         //KING CODE
         //KING CODE
         //KING CODE
@@ -259,21 +259,20 @@ public class MainGame implements Screen {
         //KING CODE
 
         if (player.getX() >= renderer.WIDTH * 5) {
-            
+
             king.setState(KingBoss.State.STANDING);
-            
+
             //if king has been standing for too long, throw gold block
             if (king.getStateTime() >= 3 && king.getState() == KingBoss.State.STANDING) {
                 king.setState(KingBoss.State.THROWING);
             }
-            
+
             //throws gold block
             if (king.getState() == KingBoss.State.THROWING) {
-                
             }
         }
         king.update(deltaTime);
-        
+
         renderer.render(deltaTime);
     }
 
