@@ -75,15 +75,4 @@ public class TurtleBoss extends Entity {
         else
             return true;
     }
-    
-    public void setState(State s) {
-        if (state != s) {
-            stateTime = 0;
-            state = s;
-        }
-    }
-    
-    public void setVelX(float x) {
-        velocity.x = x;
-    }
 }

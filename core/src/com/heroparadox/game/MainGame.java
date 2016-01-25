@@ -118,14 +118,14 @@ public class MainGame implements Screen {
             if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && player.getState() != Player.State.ATTACKING && player.getState() != Player.State.BLOCKING) {
                 player.setVelX(-player.MAX_VELOCITY);
                 player.setState(Player.State.RUNNING);
-                sword.setX(player.getX()-sword.width);
+                sword.setX(player.getX() - sword.width);
             }
 
             //allows player to run left if they aren't running other way, attacking, and blocking
             if (Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.A) && player.getState() != Player.State.ATTACKING && player.getState() != Player.State.BLOCKING) {
                 player.setVelX(player.MAX_VELOCITY);
                 player.setState(Player.State.RUNNING);
-                sword.setX(player.getX()+sword.width);
+                sword.setX(player.getX() + sword.width);
             }
 
             //allows player to jump if they aren't attacking, blocking, and have pegasus boots
@@ -221,7 +221,6 @@ public class MainGame implements Screen {
         //initialize the turtle boss fight
         if (player.getX() >= renderer.WIDTH * 2 && turtleAlive) {
             turtleFight = true;
-
         }
 
         //make the players invisible walls
@@ -232,24 +231,26 @@ public class MainGame implements Screen {
                 player.addToPosition(renderer.WIDTH * 3 - player.getX(), 0);
             }
             //turtle waits for three seconds before attacking
-            if (turtle.getStateTime() >= 3 && turtle.getState() == TurtleBoss.State.STANDING) {
+            if (turtle.getStateTime() >= 2 && turtle.getState() == TurtleBoss.State.STANDING) {
                 turtle.setState(TurtleBoss.State.SPINNING);
             }
 
             //moves the turtle
-            if (turtle.getState() == TurtleBoss.State.SPINNING) {
-                turtle.setVelX(turtle.MAX_VELOCITY * -1);
+            if (turtle.getState() == TurtleBoss.State.SPINNING && turtle.getStateTime() == 0) {
+                turtle.setVelX(-turtle.MAX_VELOCITY);
             }
 
-            if (turtle.getX() <= renderer.WIDTH * 2 + 140) {
+            if (turtle.getX() < renderer.WIDTH * 2 + 140) {
                 turtle.addToPosition(renderer.WIDTH * 2 + 140 - turtle.getX(), 0);
-            turtle.setVelX(turtle.getVelX() * -1);
-            } else if (turtle.getX() + 320 >= renderer.WIDTH * 3) {
+                turtle.setVelX(turtle.MAX_VELOCITY);
+            } else if (turtle.getX() + 320 > renderer.WIDTH * 3) {
                 turtle.addToPosition(renderer.WIDTH * 3 - turtle.getX(), 0);
-            turtle.setVelX(turtle.getVelX() * -1);
+                turtle.setVelX(-turtle.MAX_VELOCITY);
             }
-
-
+            if (turtle.getHealth() == 0) {
+                turtleFight = false;
+                turtleAlive = false;
+            }
             turtle.update(deltaTime);
         }
 
@@ -303,12 +304,12 @@ public class MainGame implements Screen {
     @Override
     public void dispose() {
     }
-    
-    public int turtleHealth(){
+
+    public int turtleHealth() {
         return turtleHealth;
     }
-    
-    public int kingHealth(){
+
+    public int kingHealth() {
         return kingHealth;
     }
 }
