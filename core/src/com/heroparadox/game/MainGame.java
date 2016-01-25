@@ -204,49 +204,48 @@ public class MainGame implements Screen {
         
         //TURTLE CODE
         //TURTLE CODE
-        //TURTLE CODE
-        //TURTLE CODE
-        //TURTLE CODE
-        //TURTLE CODE
-        //TURTLE CODE
-        //TURTLE CODE
-        //TURTLE CODE
-        //TURTLE CODE
         //initialize the turtle boss fight
-        if (player.getX() >= renderer.WIDTH * 2.5 && turtleAlive) {
+        if (player.getX() >= renderer.WIDTH * 2 && turtleAlive) {
             turtleFight = true;
         }
         
-        //make the players invisible walls
+        //make the player stay within the bounds of the fight
         if (turtleFight) {
-            if (player.getX() < renderer.WIDTH * 2) {
-                player.addToPosition(renderer.WIDTH * 2 - player.getX(), 0);
-            } else if (player.getX() > renderer.WIDTH * 3) {
-                player.addToPosition(renderer.WIDTH * 3 - player.getX(), 0);
+            if (player.getX() < 2560) {
+                player.addToPosition(2560 - player.getX(), 0);
+            } else if (player.getX() > 3840) {
+                player.addToPosition(3840 - player.getX(), 0);
             }
-        }
         
-        //turtle waits for three seconds before attacking
-        if (turtle.getStateTime() >= 3 && turtle.getState() == TurtleBoss.State.STANDING) {
-            turtle.setState(TurtleBoss.State.SPINNING);
-        }
         
-        //moves the turtle
-        if (turtle.getState() == TurtleBoss.State.SPINNING) {
+            //turtle waits for three seconds before attacking
+            if (turtle.getStateTime() >= 3f && turtle.getState() == TurtleBoss.State.STANDING) {
+                turtle.setState(TurtleBoss.State.SPINNING);
+                deltaTime = 0;
+            }
+
+            //moves the turtle
+            if (turtle.getState() == TurtleBoss.State.SPINNING) {
+                if(turtle.getX()<player.getX())
+                    turtle.setVelX(12);
+                else
+                    turtle.setVelX(-12);
+            }
+
+            if (turtle.getX() <= renderer.WIDTH * 2 + 140) {
+                turtle.addToPosition(renderer.WIDTH * 2 + 140 - turtle.getX(), 0);
+                turtle.setVelX(0);
+                turtle.setState(TurtleBoss.State.DIZZY);
+                deltaTime=0;
+            } else if (turtle.getX() + 320 >= renderer.WIDTH * 3) {
+                turtle.addToPosition(renderer.WIDTH * 3 - turtle.getX(), 0);
+                turtle.setVelX(0);
+                turtle.setState(TurtleBoss.State.DIZZY);
+                deltaTime=0;
+            }
+            System.out.println(turtleFight);
         }
-        
-        if (turtle.getX() <= renderer.WIDTH * 2 + 140) {
-            turtle.addToPosition(renderer.WIDTH * 2 + 140 - turtle.getX(), 0);
-            turtle.setVelX(-turtle.getVelX());
-        } else if (turtle.getX() + 320 >= renderer.WIDTH * 3) {
-            turtle.addToPosition(renderer.WIDTH * 3 - turtle.getX(), 0);
-            turtle.setVelX(-turtle.getVelX());
-        }
-        
-        if (turtle.getHealth() <= 0) {
-        }
-        
-        turtle.update(deltaTime);
+            turtle.update(deltaTime);
         //KING CODE
         //KING CODE
         //KING CODE
