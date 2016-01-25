@@ -25,7 +25,7 @@ public class World {
         king = new KingBoss(6400, 100, 100, 200);
         gold = new GoldBlock(6400, 100, 20, 10);
         turtle = new TurtleBoss(3040, 100, 320, 140,3);
-        sword = new Sword(player.getX()+player.getWidth(),player.getY()/2,50,40);
+        sword = new Sword(player.getX()+player.getWidth(),player.getY()/2,181,70);
         floors = new Array<Floor>();
         floorsBrick = new Array<Floor>();
         demoLevel();
