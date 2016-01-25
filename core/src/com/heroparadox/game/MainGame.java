@@ -30,11 +30,13 @@ public class MainGame implements Screen {
     private KingBoss king;
     private GoldBlock gold;
     private TurtleBoss turtle;
+    private int turtleHealth;
     private WorldRenderer renderer;
     private Music music;
     private Sword sword;
     private boolean kingAlive;
     private boolean kingFight;
+    private int kingHealth;
     GdxGame game;
 
     public MainGame(GdxGame game) {
@@ -55,6 +57,8 @@ public class MainGame implements Screen {
         turtleAlive = true;
         turtleFight = false;
         kingFight = false;
+        turtleHealth = 1;
+        kingHealth = 1;
     }
 
     @Override
@@ -114,16 +118,18 @@ public class MainGame implements Screen {
             if (Gdx.input.isKeyPressed(Keys.A) && !Gdx.input.isKeyPressed(Keys.D) && player.getState() != Player.State.ATTACKING && player.getState() != Player.State.BLOCKING) {
                 player.setVelX(-player.MAX_VELOCITY);
                 player.setState(Player.State.RUNNING);
+                sword.setX(player.getX()-sword.width);
             }
 
             //allows player to run left if they aren't running other way, attacking, and blocking
             if (Gdx.input.isKeyPressed(Keys.D) && !Gdx.input.isKeyPressed(Keys.A) && player.getState() != Player.State.ATTACKING && player.getState() != Player.State.BLOCKING) {
                 player.setVelX(player.MAX_VELOCITY);
                 player.setState(Player.State.RUNNING);
+                sword.setX(player.getX()+sword.width);
             }
 
             //allows player to jump if they aren't attacking, blocking, and have pegasus boots
-            if (Gdx.input.isKeyPressed(Keys.SPACE) && player.hasPegasusBoots() && player.getState() != Player.State.ATTACKING && player.getState() != Player.State.BLOCKING) {
+            if (Gdx.input.isKeyPressed(Keys.SPACE) && !player.hasPegasusBoots() && player.getState() != Player.State.ATTACKING && player.getState() != Player.State.BLOCKING) {
                 player.jump();
             }
 
@@ -213,8 +219,9 @@ public class MainGame implements Screen {
         //TURTLE CODE
         //TURTLE CODE
         //initialize the turtle boss fight
-        if (player.getX() >= renderer.WIDTH * 2.5 && turtleAlive) {
+        if (player.getX() >= renderer.WIDTH * 2 && turtleAlive) {
             turtleFight = true;
+
         }
 
         //make the players invisible walls
@@ -295,5 +302,13 @@ public class MainGame implements Screen {
 
     @Override
     public void dispose() {
+    }
+    
+    public int turtleHealth(){
+        return turtleHealth;
+    }
+    
+    public int kingHealth(){
+        return kingHealth;
     }
 }

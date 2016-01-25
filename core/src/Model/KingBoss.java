@@ -22,6 +22,7 @@ public class KingBoss extends Entity {
         super(x, y, width, height);
         stateTime = 0;
         state = State.STANDING;
+        health = 3;
     }
 
     public void update(float delta) {
