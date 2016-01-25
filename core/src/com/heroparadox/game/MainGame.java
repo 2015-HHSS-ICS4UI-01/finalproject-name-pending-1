@@ -287,12 +287,13 @@ public class MainGame implements Screen {
                 turtle.setState(TurtleBoss.State.STANDING);
             } else if (turtle.getX()> renderer.WIDTH * 3) {
                 turtle.addToPosition(renderer.WIDTH * 3 - turtle.getX(), 0);
-                turtle.setVelX(-turtle.MAX_VELOCITY);
+                turtle.setVelX(0);
+                turtle.setState(TurtleBoss.State.STANDING);
             }
             
             //make the turtle lose one health per time it is hit by the sword
             if (sword.isColliding(turtle)) {
-                turtleHealth = turtleHealth-1;
+                turtleHealth--;
                 System.out.println("*");
             }
             
